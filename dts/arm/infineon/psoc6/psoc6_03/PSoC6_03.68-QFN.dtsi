@@ -1,0 +1,135 @@
+/*
+ * Copyright (c) 2021, Cypress Semiconductor
+ * 
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <dt-bindings/gpio/gpio.h>
+#include <PSoC6_03.dtsi>
+
+/ {
+    soc {
+        pinctrl@40300000 {
+            compatible = "cypress,psoc6-pinctrl";
+            ranges = <0x40300000 0x20000>;
+
+            hsiom: hsiom@40300000 {
+                compatible = "cypress,psoc6-hsiom";
+                reg = <0x40300000 0x4000>;
+                interrupts = <15 6>, <16 6>;
+                label = "HSIOM";
+                status = "okay";
+            };
+
+            gpio_prt0: gpio@40310000 {
+                compatible = "cypress,psoc6-gpio";
+                reg = <0x40310000 0x80>;
+                interrupts = <0 6>;
+                gpio-controller;
+                ngpios = <6>;
+                status = "okay";
+                label = "P0";
+            };
+            gpio_prt2: gpio@40310100 {
+                compatible = "cypress,psoc6-gpio";
+                reg = <0x40310100 0x80>;
+                interrupts = <2 6>;
+                gpio-controller;
+                ngpios = <8>;
+                status = "okay";
+                label = "P2";
+            };
+            gpio_prt3: gpio@40310180 {
+                compatible = "cypress,psoc6-gpio";
+                reg = <0x40310180 0x80>;
+                interrupts = <3 6>;
+                gpio-controller;
+                ngpios = <2>;
+                status = "okay";
+                label = "P3";
+            };
+            gpio_prt5: gpio@40310280 {
+                compatible = "cypress,psoc6-gpio";
+                reg = <0x40310280 0x80>;
+                interrupts = <5 6>;
+                gpio-controller;
+                ngpios = <4>;
+                status = "okay";
+                label = "P5";
+            };
+            gpio_prt6: gpio@40310300 {
+                compatible = "cypress,psoc6-gpio";
+                reg = <0x40310300 0x80>;
+                interrupts = <6 6>;
+                gpio-controller;
+                ngpios = <6>;
+                status = "okay";
+                label = "P6";
+            };
+            gpio_prt7: gpio@40310380 {
+                compatible = "cypress,psoc6-gpio";
+                reg = <0x40310380 0x80>;
+                interrupts = <7 6>;
+                gpio-controller;
+                ngpios = <5>;
+                status = "okay";
+                label = "P7";
+            };
+            gpio_prt8: gpio@40310400 {
+                compatible = "cypress,psoc6-gpio";
+                reg = <0x40310400 0x80>;
+                interrupts = <8 6>;
+                gpio-controller;
+                ngpios = <2>;
+                status = "okay";
+                label = "P8";
+            };
+            gpio_prt9: gpio@40310480 {
+                compatible = "cypress,psoc6-gpio";
+                reg = <0x40310480 0x80>;
+                interrupts = <9 6>;
+                gpio-controller;
+                ngpios = <4>;
+                status = "okay";
+                label = "P9";
+            };
+            gpio_prt10: gpio@40310500 {
+                compatible = "cypress,psoc6-gpio";
+                reg = <0x40310500 0x80>;
+                interrupts = <10 6>;
+                gpio-controller;
+                ngpios = <6>;
+                status = "okay";
+                label = "P10";
+            };
+            gpio_prt11: gpio@40310580 {
+                compatible = "cypress,psoc6-gpio";
+                reg = <0x40310580 0x80>;
+                interrupts = <11 6>;
+                gpio-controller;
+                ngpios = <8>;
+                status = "okay";
+                label = "P11";
+            };
+            gpio_prt12: gpio@40310600 {
+                compatible = "cypress,psoc6-gpio";
+                reg = <0x40310600 0x80>;
+                interrupts = <12 6>;
+                gpio-controller;
+                ngpios = <2>;
+                status = "okay";
+                label = "P12";
+            };
+            gpio_prt14: gpio@40310700 {
+                compatible = "cypress,psoc6-gpio";
+                reg = <0x40310700 0x80>;
+                interrupts = <14 6>;
+                gpio-controller;
+                ngpios = <2>;
+                status = "okay";
+                label = "P14";
+            };
+
+        };
+    };
+};
