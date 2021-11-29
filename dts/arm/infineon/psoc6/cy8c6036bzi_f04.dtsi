@@ -1,0 +1,7 @@
+/*
+ * Copyright (c) 2021, Cypress Semiconductor
+ * 
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <psoc6_01/PSoC6_01.124-BGA.dtsi>

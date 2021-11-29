@@ -1,0 +1,38 @@
+# Copyright (c) 2021 Cypress Semiconductor Corporation.
+# SPDX-License-Identifier: Apache-2.0
+
+zephyr_sources(soc.c)
+zephyr_include_directories(.)
+
+include(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.psoc6_01.txt)
+include(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.psoc6_02.txt)
+include(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.psoc6_03.txt)
+include(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.psoc6_04.txt)
+
+# Workaround to fix absence of four defines in PDL
+# The values don't matter
+zephyr_compile_definitions(
+__copy_table_start__=0
+)
+zephyr_compile_definitions(
+__copy_table_end__=0
+)
+zephyr_compile_definitions(
+__bss_start__=0
+)
+zephyr_compile_definitions(
+__bss_end__=0
+)
+
+# PSoC 6 family defines
+zephyr_compile_definitions_ifdef(CONFIG_SOC_FAMILY_CAT1A COMPONENT_CAT1A)
+zephyr_compile_definitions_ifdef(CONFIG_SOC_FAMILY_CAT1 COMPONENT_CAT1)
+
+# add sections 
+zephyr_linker_sources_ifdef(CONFIG_SOC_FAMILY_CAT1 NOINIT noinit.ld)
+zephyr_linker_sources_ifdef(CONFIG_SOC_FAMILY_CAT1 RWDATA rwdata.ld)
+zephyr_linker_sources_ifdef(CONFIG_SOC_FAMILY_CAT1 RODATA rodata.ld)
+
+# add section for cm0p image
+zephyr_linker_sources_ifdef(CONFIG_SOC_FAMILY_CAT1A ROM_START SORT_KEY 0 
+                            cm0image.ld)
