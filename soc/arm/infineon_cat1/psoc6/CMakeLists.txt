@@ -36,3 +36,6 @@ zephyr_linker_sources_ifdef(CONFIG_SOC_FAMILY_CAT1 RODATA rodata.ld)
 # add section for cm0p image
 zephyr_linker_sources_ifdef(CONFIG_SOC_FAMILY_CAT1A ROM_START SORT_KEY 0 
                             cm0image.ld)
+
+# The vector table must be placed at the start of RAM
+zephyr_linker_sources(RAM_SECTIONS SORT_KEY 0 ram_vector_table.ld)

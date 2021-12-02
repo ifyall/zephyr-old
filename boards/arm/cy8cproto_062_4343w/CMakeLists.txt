@@ -9,7 +9,6 @@ zephyr_include_directories(bsp/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource/)
 zephyr_library()
 zephyr_library_sources(bsp/cybsp.c)
 zephyr_library_sources(bsp/system_psoc6_cm4.c)
-zephyr_library_sources(bsp/startup_psoc6_02_cm4.S)
 
 zephyr_library_sources(bsp/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource/cycfg.c)
 zephyr_library_sources(bsp/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource/cycfg_clocks.c)

@@ -18,21 +18,30 @@
 #include <kernel_internal.h>
 #include <linker/linker-defs.h>
 
-void Cy_SystemInit(void)
+uint32_t __Vectors;
+
+void relocate_vector_table(void)
 {
+    /* Relocate interrupt vectors for Flash to RAM */
+    extern uint32_t _ram_vector_start[];
+    size_t vector_size = (size_t)_vector_end - (size_t)_vector_start;
+    memcpy(_ram_vector_start, _vector_start, vector_size);
+
+    /* Update VTOR to use RAM vector table */
+    SCB->VTOR = (uint32_t)_ram_vector_start;
+    __DSB();
+    __ISB();
 }
-
-
-void _init(void) {}
-void _fini(void) { while(1); }
 
 
 static int init_cycfg_platform_wraper(const struct device *arg)
 {
     ARG_UNUSED(arg);
-    /* Enable the FPU if used */
-    Cy_SystemInitFpuEnable(); //??
 
+    /* Relocate interrupt vectors for Flash to RAM */
+    relocate_vector_table();
+    
+    /* Initializes the system */
     SystemInit();
     return 0;
 }
