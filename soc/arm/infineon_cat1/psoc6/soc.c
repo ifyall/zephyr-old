@@ -22,9 +22,10 @@ uint32_t __Vectors;
 
 void relocate_vector_table(void)
 {
-    /* Relocate interrupt vectors for Flash to RAM */
     extern uint32_t _ram_vector_start[];
     size_t vector_size = (size_t)_vector_end - (size_t)_vector_start;
+    
+    /* Copy interrupt vectors from Flash to RAM */
     memcpy(_ram_vector_start, _vector_start, vector_size);
 
     /* Update VTOR to use RAM vector table */
@@ -36,14 +37,14 @@ void relocate_vector_table(void)
 
 static int init_cycfg_platform_wraper(const struct device *arg)
 {
-    ARG_UNUSED(arg);
+	ARG_UNUSED(arg);
 
-    /* Relocate interrupt vectors for Flash to RAM */
+    /* Relocate interrupt vectors from Flash to RAM */
     relocate_vector_table();
     
     /* Initializes the system */
-    SystemInit();
-    return 0;
+	SystemInit();
+	return 0;
 }
 
 SYS_INIT(init_cycfg_platform_wraper, PRE_KERNEL_1, 0);
