@@ -6,6 +6,8 @@ config SOC_DIE_PSOC6
     bool
     select ARM
     select CPU_CORTEX_M4
+    select CPU_HAS_ARM_MPU
+    select HAS_SRAM_OFFSET
     select SOC_FAMILY_CAT1A
     select HAS_INFINEON_CAT1_DRIVERS
 
@@ -30,15 +32,13 @@ config SOC_DIE_PSOC6_04
     select SOC_DIE_PSOC6
 
 
-# Infineon MCUs
+## Infineon MCUs
 choice
     prompt "MPN"
-    optional
-osource "soc/arm/infineon_cat1/psoc6/Kconfig.soc.psoc6_*"
+    osource "soc/arm/infineon_cat1/psoc6/Kconfig.soc.psoc6_*"
 endchoice
 
 if SOC_FAMILY_CAT1A
-
 ## PSoC™ 6 Cortex M0+ prebuilt images
 choice
     prompt "PSoC™ 6 Cortex M0+ prebuilt images"

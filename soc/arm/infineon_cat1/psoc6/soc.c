@@ -37,14 +37,14 @@ void relocate_vector_table(void)
 
 static int init_cycfg_platform_wraper(const struct device *arg)
 {
-	ARG_UNUSED(arg);
+    ARG_UNUSED(arg);
 
     /* Relocate interrupt vectors from Flash to RAM */
     relocate_vector_table();
     
     /* Initializes the system */
-	SystemInit();
-	return 0;
+    SystemInit();
+    return 0;
 }
 
 SYS_INIT(init_cycfg_platform_wraper, PRE_KERNEL_1, 0);

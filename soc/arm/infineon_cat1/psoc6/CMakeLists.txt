@@ -12,16 +12,16 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.psoc6_04.txt)
 # Workaround to fix absence of four defines in PDL
 # The values don't matter
 zephyr_compile_definitions(
-__copy_table_start__ = 0
+__copy_table_start__=0
 )
 zephyr_compile_definitions(
-__copy_table_end__ = 0
+__copy_table_end__=0
 )
 zephyr_compile_definitions(
-__bss_start__ = 0
+__bss_start__=0
 )
 zephyr_compile_definitions(
-__bss_end__ = 0
+__bss_end__=0
 )
 
 # PSoC 6 family defines
@@ -33,7 +33,10 @@ zephyr_linker_sources_ifdef(CONFIG_SOC_FAMILY_CAT1 NOINIT noinit.ld)
 zephyr_linker_sources_ifdef(CONFIG_SOC_FAMILY_CAT1 RWDATA rwdata.ld)
 zephyr_linker_sources_ifdef(CONFIG_SOC_FAMILY_CAT1 RODATA rodata.ld)
 # add section for cm0p image
-zephyr_linker_sources_ifdef(CONFIG_SOC_FAMILY_CAT1A ROM_START SORT_KEY 0 cm0image.ld)
+zephyr_linker_sources_ifdef(CONFIG_SOC_FAMILY_CAT1A ROM_START SORT_KEY 0 rom_cm0image.ld)
 
 # The vector table must be placed at the start of RAM
-zephyr_linker_sources(RAM_SECTIONS SORT_KEY 0 ram_vector_table.ld)
+zephyr_linker_sources(RAM_SECTIONS SORT_KEY 0 ram_cm0image.ld)
+
+# The vector table must be placed at the start of RAM
+zephyr_linker_sources(RAM_SECTIONS SORT_KEY 1 ram_vector_table.ld)
