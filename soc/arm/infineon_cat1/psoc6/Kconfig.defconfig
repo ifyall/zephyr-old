@@ -21,4 +21,11 @@ config ROM_START_OFFSET
     default 0x2000  if SOC_PSOC6_CM0P_CRYPTO
     default 0x10000 if SOC_PSOC6_CM0P_SECURE
 
+
+config SRAM_OFFSET
+    default 0x2000 if SOC_PSOC6_CM0P_SLEEP
+    default 0x3000 if SOC_PSOC6_CM0P_BLE
+    default 0x2000 if SOC_PSOC6_CM0P_CRYPTO
+    default 0x2000 if SOC_PSOC6_CM0P_SECURE
+
 endif # SOC_FAMILY_CAT1A

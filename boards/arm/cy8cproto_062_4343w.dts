@@ -5,7 +5,7 @@
  */
 
 /dts-v1/;
-#include <infineon/psoc6/common/gpio_pins_def.h>
+#include "gpio_pin_def.h"
 #include <infineon/psoc6/mpns/CY8C624ABZI_S2D44.dtsi>
 #include "cy8cproto_062_4343w_common.dtsi"
 
