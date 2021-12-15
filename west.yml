@@ -21,6 +21,8 @@ manifest:
   remotes:
     - name: upstream
       url-base: https://github.com/zephyrproject-rtos
+    - name: gitlab_dev
+      url-base: https://devops-git.aus.cypress.com/zephyrproject-rtos
 
   #
   # Please add items below based on alphabetical order
@@ -78,7 +80,9 @@ manifest:
       groups:
         - hal
     - name: hal_infineon
-      revision: f1fa8241f8786198ba41155413243de36ed878a5
+      remote: gitlab_dev
+      submodules: true
+      revision: develop
       path: modules/hal/infineon
       groups:
         - hal
