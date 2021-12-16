@@ -3,8 +3,8 @@
 
 
 config GPIO_CAT1
-	bool "Infineon CAT1 GPIO driver"
+    bool "Infineon CAT1 GPIO driver"
         default y
-	depends on SOC_FAMILY_CAT1
-	help
-	  Enable support for Infineon CAT1 GPIO controllers.
+    depends on SOC_FAMILY_CAT1
+    help
+     Enable support for Infineon CAT1 GPIO controllers.
