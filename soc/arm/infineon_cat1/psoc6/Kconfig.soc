@@ -57,7 +57,7 @@ config SOC_PSOC6_CM0P_SLEEP
 
 config SOC_PSOC6_CM0P_BLE
     bool "BLESS Controller"
-    depends on SOC_SERIES_PSOC63
+    depends on SOC_SERIES_PSOC_63
     help
       Pre-compiled BLESS Controller image executed on the Cortex-M0+ core of the PSoC™ 6 dual-core MCU.
       The image is provided as C array ready to be compiled as part of the Cortex M4 application. 
@@ -76,7 +76,7 @@ config SOC_PSOC6_CM0P_CRYPTO
 
 config SOC_PSOC6_CM0P_SECURE
     bool "Secure"
-    depends on SOC_SERIES_PSOC64
+    depends on SOC_SERIES_PSOC_64
     help
       Secure prebuilt application image is required to be executed on the Cortex-M0+ core of the PSoC™ 64
       dual-core MCU. Users of PSoC™ 64 Secure Boot devices have multi image boot scheme. In this case the
