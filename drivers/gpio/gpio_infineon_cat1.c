@@ -46,7 +46,7 @@ struct gpio_cat1_data {
 #define DEV_DATA(dev) \
     ((struct gpio_cat1_data * const)(dev)->data)
 
-/* Get port number by calculation difference from current port address and
+/* Get port number by calculation difference from current port address minus
  * GPIO base address divided by GPIO structure size. */
 #define GET_PORT_NUM(dev) \
     (((uint32_t) DEV_CFG(dev)->regs - CY_GPIO_BASE) / GPIO_PRT_SECTION_SIZE)
@@ -58,9 +58,9 @@ static int gpio_cat1_config(const struct device *dev,
                             gpio_pin_t pin, gpio_flags_t flags)
 {
     uint32_t gpio_pin = CYHAL_GET_GPIO(GET_PORT_NUM(dev), pin);
-    cyhal_gpio_drive_mode_t gpio_mode;
-    cyhal_gpio_direction_t gpio_dir;
-    bool pin_val; 
+    cyhal_gpio_drive_mode_t gpio_mode = CYHAL_GPIO_DRIVE_NONE;
+    cyhal_gpio_direction_t gpio_dir = CYHAL_GPIO_DIR_INPUT;
+    bool pin_val = 0; 
 
     switch (flags & (GPIO_INPUT | GPIO_OUTPUT)) {
     case GPIO_INPUT:
@@ -69,7 +69,6 @@ static int gpio_cat1_config(const struct device *dev,
         if ((flags & GPIO_PULL_UP) && (flags & GPIO_PULL_DOWN)) 
         {
             gpio_mode = CYHAL_GPIO_DRIVE_PULLUPDOWN;
-            pin_val   = 0;
         } 
         else if (flags & GPIO_PULL_UP) 
         {
@@ -79,12 +78,10 @@ static int gpio_cat1_config(const struct device *dev,
         else if (flags & GPIO_PULL_DOWN) 
         {
             gpio_mode = CYHAL_GPIO_DRIVE_PULLDOWN;
-            pin_val   = 0;
         } 
         else 
         {
             gpio_mode = CYHAL_GPIO_DRIVE_ANALOG;
-            pin_val   = 0;
         }
         break;
 
@@ -235,7 +232,7 @@ static int gpio_cat1_pin_interrupt_configure(const struct device *dev, gpio_pin_
 
     /* Find index of free callback data structure */
     uint32_t index;
-    for (index = 0u; i < cfg->ngpios; index++)
+    for (index = 0u; index < cfg->ngpios; index++)
     {
         if ( (cb_data_ptr[index].callback == NULL) || (cb_data_ptr[index].pin == gpio_pin) )
         {
