@@ -24,7 +24,7 @@ In addition, support for Digilent's Pmod interface is also provided with this ki
 Hardware
 ********
 
-For more information about the PSoC 62 MCU SoC and Y8CPROTO-062-4343W board:
+For more information about the PSoC 62 MCU SoC and CY8CPROTO-062-4343W board:
 
 - `PSoC 62 MCU SoC Website`_
 - `PSoC 62 MCU Datasheet`_
@@ -33,6 +33,23 @@ For more information about the PSoC 62 MCU SoC and Y8CPROTO-062-4343W board:
 - `CY8CKIT-062-WiFi-BT Website`_
 - `CY8CKIT-062-WiFi-BT User Guide`_
 - `CY8CKIT-062-WiFi-BT Schematics`_
+
+Kit Features:
+==================
+- Support of up to 2MB Flash and 1MB SRAM
+- Dedicated SDHC to interface with WICED wireless devices.
+- Delivers dual-cores, with a 150-MHz Arm Cortex-M4 as the primary a
+  pplication processor and a 100-MHz Arm Cortex-M0+ as the secondary 
+  processor for low-power operations.
+- Supports Full-Speed USB, capacitive-sensing with CAPSENSE, a PDM-PCM 
+  digital microphone interface, a Quad-SPI interface, 13 serial communication
+  blocks, 7 programmable analog blocks, and 56 programmable digital blocks.
+
+Kit Contents:
+==================
+- PSoC 6 Wi-Fi BT Prototyping Board
+- USB Type-A to Micro-B cable
+- Quick Start Guide
 
 Supported Features
 ==================
@@ -47,7 +64,7 @@ The board configuration supports the following hardware features:
 +-----------+------------+-----------------------+
 | SYSTICK   | on-chip    | system clock          |
 +-----------+------------+-----------------------+
-| PINCTRL   | on-chip    | pin control           |
+| GPIO      | on-chip    | GPIO                  |
 +-----------+------------+-----------------------+
 | UART      | on-chip    | serial port-polling;  |
 |           |            | serial port-interrupt |
@@ -65,26 +82,14 @@ The PSoC 62 MCU SoC is configured to use the internal IMO+FLL as a source for
 the system clock. CM0+ works at 50MHz, CM4 - at 100MHz. Other sources for the
 system clock are provided in the SOC, depending on your system requirements.
 
-Serial Port
-===========
-
-The PSoC 62 MCU SoC has 9 SCB blocks 8 of each can be configured as UART
-interfaces for serial communication. At the moment UART5 on SCB5 and UART6 on
-SCB6 are configured. SCB5 is connected to the onboard KitProg2's USB-UART
-Bridge, SCB6 to P12_0, P12_1 pins on the J3 of the Arduino Uno R3 compatible
-PSoC6 I/O header.
 
 Programming and Debugging
 *************************
 
 The CY8CPROTO-062-4343W includes an onboard programmer/debugger (KitProg2) with
 mass storage programming to provide debugging, flash programming, and serial
-communication over USB. There are also PSoC 6 program and debug headers J11
-and J12 that can be used with Segger J-Link.
+communication over USB. 
 
-!!!!!!!
-!!!!!!! TODO: update this documentation...
-!!!!!!!
 
 References
 **********
@@ -102,10 +107,10 @@ References
 	http://www.cypress.com/documentation/technical-reference-manuals/psoc-6-mcu-psoc-62-register-technical-reference-manual-trm
 
 .. _CY8CKIT-062-WiFi-BT Website:
-   http://www.cypress.com/documentation/development-kitsboards/psoc-6-wifi-bt-pioneer-kit
+    https://www.infineon.com/cms/en/product/evaluation-boards/cy8cproto-062-4343w/
 
 .. _CY8CKIT-062-WiFi-BT User Guide:
-   http://www.cypress.com/file/407731/download
+    https://www.infineon.com/cms/en/product/evaluation-boards/cy8cproto-062-4343w/#!?fileId=8ac78c8c7d0d8da4017d0f0118571844
 
 .. _CY8CKIT-062-WiFi-BT Schematics:
-   http://www.cypress.com/file/420846/download
+    https://www.infineon.com/cms/en/product/evaluation-boards/cy8cproto-062-4343w/#!?fileId=8ac78c8c7d0d8da4017d0f01126b183f
