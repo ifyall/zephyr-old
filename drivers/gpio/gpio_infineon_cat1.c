@@ -81,7 +81,7 @@ static int gpio_cat1_config(const struct device *dev,
         } 
         else 
         {
-            gpio_mode = CYHAL_GPIO_DRIVE_ANALOG;
+            gpio_mode = CYHAL_GPIO_DRIVE_NONE;
         }
         break;
 
