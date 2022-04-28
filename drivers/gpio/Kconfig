@@ -87,7 +87,7 @@ source "drivers/gpio/Kconfig.sx1509b"
 source "drivers/gpio/Kconfig.imx"
 
 source "drivers/gpio/Kconfig.it8xxx2"
-
+source "drivers/gpio/Kconfig.infineon_cat1"
 source "drivers/gpio/Kconfig.intel"
 
 source "drivers/gpio/Kconfig.xec"
