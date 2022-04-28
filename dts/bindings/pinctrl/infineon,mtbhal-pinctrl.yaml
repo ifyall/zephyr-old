@@ -1,0 +1,30 @@
+# Copyright (c) 2022 Cypress Semiconductor Corporation.
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  Infineon CAT1 Pinctrl container node
+
+  The Infineon CAT1 Pinctrl implements following pin configuration option:
+
+    * bias-pull-up
+    * bias-pull-down
+    * drive-open-drain
+    * drive-open-source
+    * drive-push-pull   (strong)
+    * input-enable      (input-buffer)
+
+compatible: "infineon,mtbhal-pinctrl"
+
+include: [base.yaml, pincfg-node.yaml]
+
+child-binding:
+    description: |
+        This binding gives a base representation of the Infineon CAT1 pins configuration
+
+    properties:
+      pinmux:
+        required: true
+        type: int
+
+      slew-rate:
+        required: false
