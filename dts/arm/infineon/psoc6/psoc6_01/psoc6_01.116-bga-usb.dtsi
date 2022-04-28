@@ -1,0 +1,1469 @@
+/*
+ * Copyright (c) 2021, Cypress Semiconductor
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <dt-bindings/gpio/gpio.h>
+#include "psoc6_01.dtsi"
+#include "dt-bindings/pinctrl/cat1-pinctrl.h"
+
+/ {
+	soc {
+		pinctrl@40310000 {
+			compatible = "infineon,mtbhal-pinctrl";
+			reg = <0x40310000 0x20000>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			hsiom: hsiom@40310000 {
+				compatible = "infineon,mtbhal-hsiom";
+				reg = <0x40310000 0x4000>;
+				interrupts = <15 6>, <16 6>;
+				label = "HSIOM";
+				status = "disabled";
+			};
+
+			gpio_prt0: gpio@40320000 {
+				compatible = "infineon,mtbhal-gpio";
+				reg = <0x40320000 0x80>;
+				interrupts = <0 6>;
+				gpio-controller;
+				ngpios = <6>;
+				status = "disabled";
+				label = "P0";
+				#gpio-cells = <2>;
+			};
+			gpio_prt1: gpio@40320080 {
+				compatible = "infineon,mtbhal-gpio";
+				reg = <0x40320080 0x80>;
+				interrupts = <1 6>;
+				gpio-controller;
+				ngpios = <3>;
+				status = "disabled";
+				label = "P1";
+				#gpio-cells = <2>;
+			};
+			gpio_prt5: gpio@40320280 {
+				compatible = "infineon,mtbhal-gpio";
+				reg = <0x40320280 0x80>;
+				interrupts = <5 6>;
+				gpio-controller;
+				ngpios = <7>;
+				status = "disabled";
+				label = "P5";
+				#gpio-cells = <2>;
+			};
+			gpio_prt6: gpio@40320300 {
+				compatible = "infineon,mtbhal-gpio";
+				reg = <0x40320300 0x80>;
+				interrupts = <6 6>;
+				gpio-controller;
+				ngpios = <8>;
+				status = "disabled";
+				label = "P6";
+				#gpio-cells = <2>;
+			};
+			gpio_prt7: gpio@40320380 {
+				compatible = "infineon,mtbhal-gpio";
+				reg = <0x40320380 0x80>;
+				interrupts = <7 6>;
+				gpio-controller;
+				ngpios = <8>;
+				status = "disabled";
+				label = "P7";
+				#gpio-cells = <2>;
+			};
+			gpio_prt8: gpio@40320400 {
+				compatible = "infineon,mtbhal-gpio";
+				reg = <0x40320400 0x80>;
+				interrupts = <8 6>;
+				gpio-controller;
+				ngpios = <8>;
+				status = "disabled";
+				label = "P8";
+				#gpio-cells = <2>;
+			};
+			gpio_prt9: gpio@40320480 {
+				compatible = "infineon,mtbhal-gpio";
+				reg = <0x40320480 0x80>;
+				interrupts = <9 6>;
+				gpio-controller;
+				ngpios = <8>;
+				status = "disabled";
+				label = "P9";
+				#gpio-cells = <2>;
+			};
+			gpio_prt10: gpio@40320500 {
+				compatible = "infineon,mtbhal-gpio";
+				reg = <0x40320500 0x80>;
+				interrupts = <10 6>;
+				gpio-controller;
+				ngpios = <7>;
+				status = "disabled";
+				label = "P10";
+				#gpio-cells = <2>;
+			};
+			gpio_prt11: gpio@40320580 {
+				compatible = "infineon,mtbhal-gpio";
+				reg = <0x40320580 0x80>;
+				interrupts = <11 6>;
+				gpio-controller;
+				ngpios = <8>;
+				status = "disabled";
+				label = "P11";
+				#gpio-cells = <2>;
+			};
+			gpio_prt12: gpio@40320600 {
+				compatible = "infineon,mtbhal-gpio";
+				reg = <0x40320600 0x80>;
+				interrupts = <12 6>;
+				gpio-controller;
+				ngpios = <8>;
+				status = "disabled";
+				label = "P12";
+				#gpio-cells = <2>;
+			};
+			gpio_prt13: gpio@40320680 {
+				compatible = "infineon,mtbhal-gpio";
+				reg = <0x40320680 0x80>;
+				interrupts = <13 6>;
+				gpio-controller;
+				ngpios = <4>;
+				status = "disabled";
+				label = "P13";
+				#gpio-cells = <2>;
+			};
+			gpio_prt14: gpio@40320700 {
+				compatible = "infineon,mtbhal-gpio";
+				reg = <0x40320700 0x80>;
+				interrupts = <14 6>;
+				gpio-controller;
+				ngpios = <2>;
+				status = "disabled";
+				label = "P14";
+				#gpio-cells = <2>;
+			};
+
+			/* audioss_clk_i2s_if */
+			p5_0_audioss0_clk_i2s_if: p5_0_audioss0_clk_i2s_if {
+				DT_CAT1_PINCTRL_INFO(5, 0, HSIOM_SEL_ACT_10, AUDIOSS_CLK_I2S_IF);
+			};
+
+			/* audioss_pdm_clk */
+			p10_4_audioss0_pdm_clk: p10_4_audioss0_pdm_clk {
+				DT_CAT1_PINCTRL_INFO(10, 4, HSIOM_SEL_ACT_9, AUDIOSS_PDM_CLK);
+			};
+			p12_4_audioss0_pdm_clk: p12_4_audioss0_pdm_clk {
+				DT_CAT1_PINCTRL_INFO(12, 4, HSIOM_SEL_ACT_9, AUDIOSS_PDM_CLK);
+			};
+
+			/* audioss_pdm_data */
+			p10_5_audioss0_pdm_data: p10_5_audioss0_pdm_data {
+				DT_CAT1_PINCTRL_INFO(10, 5, HSIOM_SEL_ACT_9, AUDIOSS_PDM_DATA);
+			};
+			p12_5_audioss0_pdm_data: p12_5_audioss0_pdm_data {
+				DT_CAT1_PINCTRL_INFO(12, 5, HSIOM_SEL_ACT_9, AUDIOSS_PDM_DATA);
+			};
+
+			/* audioss_rx_sck */
+			p5_4_audioss0_rx_sck: p5_4_audioss0_rx_sck {
+				DT_CAT1_PINCTRL_INFO(5, 4, HSIOM_SEL_ACT_10, AUDIOSS_RX_SCK);
+			};
+
+			/* audioss_rx_sdi */
+			p5_6_audioss0_rx_sdi: p5_6_audioss0_rx_sdi {
+				DT_CAT1_PINCTRL_INFO(5, 6, HSIOM_SEL_ACT_10, AUDIOSS_RX_SDI);
+			};
+
+			/* audioss_rx_ws */
+			p5_5_audioss0_rx_ws: p5_5_audioss0_rx_ws {
+				DT_CAT1_PINCTRL_INFO(5, 5, HSIOM_SEL_ACT_10, AUDIOSS_RX_WS);
+			};
+
+			/* audioss_tx_sck */
+			p5_1_audioss0_tx_sck: p5_1_audioss0_tx_sck {
+				DT_CAT1_PINCTRL_INFO(5, 1, HSIOM_SEL_ACT_10, AUDIOSS_TX_SCK);
+			};
+
+			/* audioss_tx_sdo */
+			p5_3_audioss0_tx_sdo: p5_3_audioss0_tx_sdo {
+				DT_CAT1_PINCTRL_INFO(5, 3, HSIOM_SEL_ACT_10, AUDIOSS_TX_SDO);
+			};
+
+			/* audioss_tx_ws */
+			p5_2_audioss0_tx_ws: p5_2_audioss0_tx_ws {
+				DT_CAT1_PINCTRL_INFO(5, 2, HSIOM_SEL_ACT_10, AUDIOSS_TX_WS);
+			};
+
+			/* dac_ctdac_voutsw */
+			p9_6_dac0_ctdac_voutsw: p9_6_dac0_ctdac_voutsw {
+				DT_CAT1_PINCTRL_INFO(9, 6, HSIOM_SEL_GPIO, DAC_CTDAC_VOUTSW);
+			};
+
+			/* opamp_vin_m */
+			p9_1_opamp0_vin_m: p9_1_opamp0_vin_m {
+				DT_CAT1_PINCTRL_INFO(9, 1, HSIOM_SEL_GPIO, OPAMP_VIN_M);
+			};
+			p9_4_opamp0_vin_m: p9_4_opamp0_vin_m {
+				DT_CAT1_PINCTRL_INFO(9, 4, HSIOM_SEL_GPIO, OPAMP_VIN_M);
+			};
+
+			/* opamp_vin_p0 */
+			p9_0_opamp0_vin_p0: p9_0_opamp0_vin_p0 {
+				DT_CAT1_PINCTRL_INFO(9, 0, HSIOM_SEL_GPIO, OPAMP_VIN_P0);
+			};
+			p9_5_opamp0_vin_p0: p9_5_opamp0_vin_p0 {
+				DT_CAT1_PINCTRL_INFO(9, 5, HSIOM_SEL_GPIO, OPAMP_VIN_P0);
+			};
+
+			/* opamp_vin_p1 */
+			p9_6_opamp0_vin_p1: p9_6_opamp0_vin_p1 {
+				DT_CAT1_PINCTRL_INFO(9, 6, HSIOM_SEL_GPIO, OPAMP_VIN_P1);
+			};
+			p9_7_opamp0_vin_p1: p9_7_opamp0_vin_p1 {
+				DT_CAT1_PINCTRL_INFO(9, 7, HSIOM_SEL_GPIO, OPAMP_VIN_P1);
+			};
+
+			/* scb_i2c_scl */
+			p0_2_scb0_i2c_scl: p0_2_scb0_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(0, 2, HSIOM_SEL_ACT_7, SCB_I2C_SCL);
+			};
+			p1_0_scb7_i2c_scl: p1_0_scb7_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(1, 0, HSIOM_SEL_ACT_7, SCB_I2C_SCL);
+			};
+			p5_0_scb5_i2c_scl: p5_0_scb5_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(5, 0, HSIOM_SEL_ACT_7, SCB_I2C_SCL);
+			};
+			p6_0_scb3_i2c_scl: p6_0_scb3_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(6, 0, HSIOM_SEL_ACT_7, SCB_I2C_SCL);
+			};
+			p6_0_scb8_i2c_scl: p6_0_scb8_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(6, 0, HSIOM_SEL_DS_2, SCB_I2C_SCL);
+			};
+			p6_4_scb6_i2c_scl: p6_4_scb6_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(6, 4, HSIOM_SEL_ACT_7, SCB_I2C_SCL);
+			};
+			p6_4_scb8_i2c_scl: p6_4_scb8_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(6, 4, HSIOM_SEL_DS_2, SCB_I2C_SCL);
+			};
+			p7_0_scb4_i2c_scl: p7_0_scb4_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(7, 0, HSIOM_SEL_ACT_7, SCB_I2C_SCL);
+			};
+			p8_0_scb4_i2c_scl: p8_0_scb4_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(8, 0, HSIOM_SEL_ACT_7, SCB_I2C_SCL);
+			};
+			p9_0_scb2_i2c_scl: p9_0_scb2_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(9, 0, HSIOM_SEL_ACT_7, SCB_I2C_SCL);
+			};
+			p10_0_scb1_i2c_scl: p10_0_scb1_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(10, 0, HSIOM_SEL_ACT_7, SCB_I2C_SCL);
+			};
+			p11_0_scb5_i2c_scl: p11_0_scb5_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(11, 0, HSIOM_SEL_ACT_7, SCB_I2C_SCL);
+			};
+			p12_0_scb6_i2c_scl: p12_0_scb6_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(12, 0, HSIOM_SEL_ACT_7, SCB_I2C_SCL);
+			};
+			p13_0_scb6_i2c_scl: p13_0_scb6_i2c_scl {
+				DT_CAT1_PINCTRL_INFO(13, 0, HSIOM_SEL_ACT_7, SCB_I2C_SCL);
+			};
+
+			/* scb_i2c_sda */
+			p0_3_scb0_i2c_sda: p0_3_scb0_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(0, 3, HSIOM_SEL_ACT_7, SCB_I2C_SDA);
+			};
+			p1_1_scb7_i2c_sda: p1_1_scb7_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(1, 1, HSIOM_SEL_ACT_7, SCB_I2C_SDA);
+			};
+			p5_1_scb5_i2c_sda: p5_1_scb5_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(5, 1, HSIOM_SEL_ACT_7, SCB_I2C_SDA);
+			};
+			p6_1_scb3_i2c_sda: p6_1_scb3_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(6, 1, HSIOM_SEL_ACT_7, SCB_I2C_SDA);
+			};
+			p6_1_scb8_i2c_sda: p6_1_scb8_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(6, 1, HSIOM_SEL_DS_2, SCB_I2C_SDA);
+			};
+			p6_5_scb6_i2c_sda: p6_5_scb6_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(6, 5, HSIOM_SEL_ACT_7, SCB_I2C_SDA);
+			};
+			p6_5_scb8_i2c_sda: p6_5_scb8_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(6, 5, HSIOM_SEL_DS_2, SCB_I2C_SDA);
+			};
+			p7_1_scb4_i2c_sda: p7_1_scb4_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(7, 1, HSIOM_SEL_ACT_7, SCB_I2C_SDA);
+			};
+			p8_1_scb4_i2c_sda: p8_1_scb4_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(8, 1, HSIOM_SEL_ACT_7, SCB_I2C_SDA);
+			};
+			p9_1_scb2_i2c_sda: p9_1_scb2_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(9, 1, HSIOM_SEL_ACT_7, SCB_I2C_SDA);
+			};
+			p10_1_scb1_i2c_sda: p10_1_scb1_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(10, 1, HSIOM_SEL_ACT_7, SCB_I2C_SDA);
+			};
+			p11_1_scb5_i2c_sda: p11_1_scb5_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(11, 1, HSIOM_SEL_ACT_7, SCB_I2C_SDA);
+			};
+			p12_1_scb6_i2c_sda: p12_1_scb6_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(12, 1, HSIOM_SEL_ACT_7, SCB_I2C_SDA);
+			};
+			p13_1_scb6_i2c_sda: p13_1_scb6_i2c_sda {
+				DT_CAT1_PINCTRL_INFO(13, 1, HSIOM_SEL_ACT_7, SCB_I2C_SDA);
+			};
+
+			/* scb_spi_m_clk */
+			p0_4_scb0_spi_m_clk: p0_4_scb0_spi_m_clk {
+				DT_CAT1_PINCTRL_INFO(0, 4, HSIOM_SEL_ACT_8, SCB_SPI_M_CLK);
+			};
+			p1_2_scb7_spi_m_clk: p1_2_scb7_spi_m_clk {
+				DT_CAT1_PINCTRL_INFO(1, 2, HSIOM_SEL_ACT_8, SCB_SPI_M_CLK);
+			};
+			p5_2_scb5_spi_m_clk: p5_2_scb5_spi_m_clk {
+				DT_CAT1_PINCTRL_INFO(5, 2, HSIOM_SEL_ACT_8, SCB_SPI_M_CLK);
+			};
+			p6_2_scb3_spi_m_clk: p6_2_scb3_spi_m_clk {
+				DT_CAT1_PINCTRL_INFO(6, 2, HSIOM_SEL_ACT_8, SCB_SPI_M_CLK);
+			};
+			p6_2_scb8_spi_m_clk: p6_2_scb8_spi_m_clk {
+				DT_CAT1_PINCTRL_INFO(6, 2, HSIOM_SEL_DS_6, SCB_SPI_M_CLK);
+			};
+			p6_6_scb6_spi_m_clk: p6_6_scb6_spi_m_clk {
+				DT_CAT1_PINCTRL_INFO(6, 6, HSIOM_SEL_ACT_8, SCB_SPI_M_CLK);
+			};
+			p6_6_scb8_spi_m_clk: p6_6_scb8_spi_m_clk {
+				DT_CAT1_PINCTRL_INFO(6, 6, HSIOM_SEL_DS_6, SCB_SPI_M_CLK);
+			};
+			p7_2_scb4_spi_m_clk: p7_2_scb4_spi_m_clk {
+				DT_CAT1_PINCTRL_INFO(7, 2, HSIOM_SEL_ACT_8, SCB_SPI_M_CLK);
+			};
+			p8_2_scb4_spi_m_clk: p8_2_scb4_spi_m_clk {
+				DT_CAT1_PINCTRL_INFO(8, 2, HSIOM_SEL_ACT_8, SCB_SPI_M_CLK);
+			};
+			p9_2_scb2_spi_m_clk: p9_2_scb2_spi_m_clk {
+				DT_CAT1_PINCTRL_INFO(9, 2, HSIOM_SEL_ACT_8, SCB_SPI_M_CLK);
+			};
+			p10_2_scb1_spi_m_clk: p10_2_scb1_spi_m_clk {
+				DT_CAT1_PINCTRL_INFO(10, 2, HSIOM_SEL_ACT_8, SCB_SPI_M_CLK);
+			};
+			p11_2_scb5_spi_m_clk: p11_2_scb5_spi_m_clk {
+				DT_CAT1_PINCTRL_INFO(11, 2, HSIOM_SEL_ACT_8, SCB_SPI_M_CLK);
+			};
+			p12_2_scb6_spi_m_clk: p12_2_scb6_spi_m_clk {
+				DT_CAT1_PINCTRL_INFO(12, 2, HSIOM_SEL_ACT_8, SCB_SPI_M_CLK);
+			};
+
+			/* scb_spi_m_miso */
+			p0_3_scb0_spi_m_miso: p0_3_scb0_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(0, 3, HSIOM_SEL_ACT_8, SCB_SPI_M_MISO);
+			};
+			p1_1_scb7_spi_m_miso: p1_1_scb7_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(1, 1, HSIOM_SEL_ACT_8, SCB_SPI_M_MISO);
+			};
+			p5_1_scb5_spi_m_miso: p5_1_scb5_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(5, 1, HSIOM_SEL_ACT_8, SCB_SPI_M_MISO);
+			};
+			p6_1_scb3_spi_m_miso: p6_1_scb3_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(6, 1, HSIOM_SEL_ACT_8, SCB_SPI_M_MISO);
+			};
+			p6_1_scb8_spi_m_miso: p6_1_scb8_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(6, 1, HSIOM_SEL_DS_6, SCB_SPI_M_MISO);
+			};
+			p6_5_scb6_spi_m_miso: p6_5_scb6_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(6, 5, HSIOM_SEL_ACT_8, SCB_SPI_M_MISO);
+			};
+			p6_5_scb8_spi_m_miso: p6_5_scb8_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(6, 5, HSIOM_SEL_DS_6, SCB_SPI_M_MISO);
+			};
+			p7_1_scb4_spi_m_miso: p7_1_scb4_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(7, 1, HSIOM_SEL_ACT_8, SCB_SPI_M_MISO);
+			};
+			p8_1_scb4_spi_m_miso: p8_1_scb4_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(8, 1, HSIOM_SEL_ACT_8, SCB_SPI_M_MISO);
+			};
+			p9_1_scb2_spi_m_miso: p9_1_scb2_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(9, 1, HSIOM_SEL_ACT_8, SCB_SPI_M_MISO);
+			};
+			p10_1_scb1_spi_m_miso: p10_1_scb1_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(10, 1, HSIOM_SEL_ACT_8, SCB_SPI_M_MISO);
+			};
+			p11_1_scb5_spi_m_miso: p11_1_scb5_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(11, 1, HSIOM_SEL_ACT_8, SCB_SPI_M_MISO);
+			};
+			p12_1_scb6_spi_m_miso: p12_1_scb6_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(12, 1, HSIOM_SEL_ACT_8, SCB_SPI_M_MISO);
+			};
+			p13_1_scb6_spi_m_miso: p13_1_scb6_spi_m_miso {
+				DT_CAT1_PINCTRL_INFO(13, 1, HSIOM_SEL_ACT_8, SCB_SPI_M_MISO);
+			};
+
+			/* scb_spi_m_mosi */
+			p0_2_scb0_spi_m_mosi: p0_2_scb0_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(0, 2, HSIOM_SEL_ACT_8, SCB_SPI_M_MOSI);
+			};
+			p1_0_scb7_spi_m_mosi: p1_0_scb7_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(1, 0, HSIOM_SEL_ACT_8, SCB_SPI_M_MOSI);
+			};
+			p5_0_scb5_spi_m_mosi: p5_0_scb5_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(5, 0, HSIOM_SEL_ACT_8, SCB_SPI_M_MOSI);
+			};
+			p6_0_scb3_spi_m_mosi: p6_0_scb3_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(6, 0, HSIOM_SEL_ACT_8, SCB_SPI_M_MOSI);
+			};
+			p6_0_scb8_spi_m_mosi: p6_0_scb8_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(6, 0, HSIOM_SEL_DS_6, SCB_SPI_M_MOSI);
+			};
+			p6_4_scb6_spi_m_mosi: p6_4_scb6_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(6, 4, HSIOM_SEL_ACT_8, SCB_SPI_M_MOSI);
+			};
+			p6_4_scb8_spi_m_mosi: p6_4_scb8_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(6, 4, HSIOM_SEL_DS_6, SCB_SPI_M_MOSI);
+			};
+			p7_0_scb4_spi_m_mosi: p7_0_scb4_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(7, 0, HSIOM_SEL_ACT_8, SCB_SPI_M_MOSI);
+			};
+			p8_0_scb4_spi_m_mosi: p8_0_scb4_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(8, 0, HSIOM_SEL_ACT_8, SCB_SPI_M_MOSI);
+			};
+			p9_0_scb2_spi_m_mosi: p9_0_scb2_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(9, 0, HSIOM_SEL_ACT_8, SCB_SPI_M_MOSI);
+			};
+			p10_0_scb1_spi_m_mosi: p10_0_scb1_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(10, 0, HSIOM_SEL_ACT_8, SCB_SPI_M_MOSI);
+			};
+			p11_0_scb5_spi_m_mosi: p11_0_scb5_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(11, 0, HSIOM_SEL_ACT_8, SCB_SPI_M_MOSI);
+			};
+			p12_0_scb6_spi_m_mosi: p12_0_scb6_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(12, 0, HSIOM_SEL_ACT_8, SCB_SPI_M_MOSI);
+			};
+			p13_0_scb6_spi_m_mosi: p13_0_scb6_spi_m_mosi {
+				DT_CAT1_PINCTRL_INFO(13, 0, HSIOM_SEL_ACT_8, SCB_SPI_M_MOSI);
+			};
+
+			/* scb_spi_m_select0 */
+			p0_5_scb0_spi_m_select0: p0_5_scb0_spi_m_select0 {
+				DT_CAT1_PINCTRL_INFO(0, 5, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT0);
+			};
+			p5_3_scb5_spi_m_select0: p5_3_scb5_spi_m_select0 {
+				DT_CAT1_PINCTRL_INFO(5, 3, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT0);
+			};
+			p6_3_scb3_spi_m_select0: p6_3_scb3_spi_m_select0 {
+				DT_CAT1_PINCTRL_INFO(6, 3, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT0);
+			};
+			p6_3_scb8_spi_m_select0: p6_3_scb8_spi_m_select0 {
+				DT_CAT1_PINCTRL_INFO(6, 3, HSIOM_SEL_DS_6, SCB_SPI_M_SELECT0);
+			};
+			p6_7_scb6_spi_m_select0: p6_7_scb6_spi_m_select0 {
+				DT_CAT1_PINCTRL_INFO(6, 7, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT0);
+			};
+			p6_7_scb8_spi_m_select0: p6_7_scb8_spi_m_select0 {
+				DT_CAT1_PINCTRL_INFO(6, 7, HSIOM_SEL_DS_6, SCB_SPI_M_SELECT0);
+			};
+			p7_3_scb4_spi_m_select0: p7_3_scb4_spi_m_select0 {
+				DT_CAT1_PINCTRL_INFO(7, 3, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT0);
+			};
+			p8_3_scb4_spi_m_select0: p8_3_scb4_spi_m_select0 {
+				DT_CAT1_PINCTRL_INFO(8, 3, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT0);
+			};
+			p9_3_scb2_spi_m_select0: p9_3_scb2_spi_m_select0 {
+				DT_CAT1_PINCTRL_INFO(9, 3, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT0);
+			};
+			p10_3_scb1_spi_m_select0: p10_3_scb1_spi_m_select0 {
+				DT_CAT1_PINCTRL_INFO(10, 3, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT0);
+			};
+			p11_3_scb5_spi_m_select0: p11_3_scb5_spi_m_select0 {
+				DT_CAT1_PINCTRL_INFO(11, 3, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT0);
+			};
+			p12_3_scb6_spi_m_select0: p12_3_scb6_spi_m_select0 {
+				DT_CAT1_PINCTRL_INFO(12, 3, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT0);
+			};
+
+			/* scb_spi_m_select1 */
+			p0_0_scb0_spi_m_select1: p0_0_scb0_spi_m_select1 {
+				DT_CAT1_PINCTRL_INFO(0, 0, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT1);
+			};
+			p5_4_scb5_spi_m_select1: p5_4_scb5_spi_m_select1 {
+				DT_CAT1_PINCTRL_INFO(5, 4, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT1);
+			};
+			p7_4_scb4_spi_m_select1: p7_4_scb4_spi_m_select1 {
+				DT_CAT1_PINCTRL_INFO(7, 4, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT1);
+			};
+			p7_7_scb3_spi_m_select1: p7_7_scb3_spi_m_select1 {
+				DT_CAT1_PINCTRL_INFO(7, 7, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT1);
+			};
+			p8_4_scb4_spi_m_select1: p8_4_scb4_spi_m_select1 {
+				DT_CAT1_PINCTRL_INFO(8, 4, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT1);
+			};
+			p9_4_scb2_spi_m_select1: p9_4_scb2_spi_m_select1 {
+				DT_CAT1_PINCTRL_INFO(9, 4, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT1);
+			};
+			p10_4_scb1_spi_m_select1: p10_4_scb1_spi_m_select1 {
+				DT_CAT1_PINCTRL_INFO(10, 4, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT1);
+			};
+			p11_4_scb5_spi_m_select1: p11_4_scb5_spi_m_select1 {
+				DT_CAT1_PINCTRL_INFO(11, 4, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT1);
+			};
+			p12_4_scb6_spi_m_select1: p12_4_scb6_spi_m_select1 {
+				DT_CAT1_PINCTRL_INFO(12, 4, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT1);
+			};
+
+			/* scb_spi_m_select2 */
+			p0_1_scb0_spi_m_select2: p0_1_scb0_spi_m_select2 {
+				DT_CAT1_PINCTRL_INFO(0, 1, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT2);
+			};
+			p5_5_scb5_spi_m_select2: p5_5_scb5_spi_m_select2 {
+				DT_CAT1_PINCTRL_INFO(5, 5, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT2);
+			};
+			p7_5_scb4_spi_m_select2: p7_5_scb4_spi_m_select2 {
+				DT_CAT1_PINCTRL_INFO(7, 5, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT2);
+			};
+			p8_5_scb4_spi_m_select2: p8_5_scb4_spi_m_select2 {
+				DT_CAT1_PINCTRL_INFO(8, 5, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT2);
+			};
+			p8_7_scb3_spi_m_select2: p8_7_scb3_spi_m_select2 {
+				DT_CAT1_PINCTRL_INFO(8, 7, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT2);
+			};
+			p9_5_scb2_spi_m_select2: p9_5_scb2_spi_m_select2 {
+				DT_CAT1_PINCTRL_INFO(9, 5, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT2);
+			};
+			p10_5_scb1_spi_m_select2: p10_5_scb1_spi_m_select2 {
+				DT_CAT1_PINCTRL_INFO(10, 5, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT2);
+			};
+			p11_5_scb5_spi_m_select2: p11_5_scb5_spi_m_select2 {
+				DT_CAT1_PINCTRL_INFO(11, 5, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT2);
+			};
+			p12_5_scb6_spi_m_select2: p12_5_scb6_spi_m_select2 {
+				DT_CAT1_PINCTRL_INFO(12, 5, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT2);
+			};
+
+			/* scb_spi_m_select3 */
+			p5_6_scb5_spi_m_select3: p5_6_scb5_spi_m_select3 {
+				DT_CAT1_PINCTRL_INFO(5, 6, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT3);
+			};
+			p7_6_scb4_spi_m_select3: p7_6_scb4_spi_m_select3 {
+				DT_CAT1_PINCTRL_INFO(7, 6, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT3);
+			};
+			p8_6_scb4_spi_m_select3: p8_6_scb4_spi_m_select3 {
+				DT_CAT1_PINCTRL_INFO(8, 6, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT3);
+			};
+			p9_6_scb2_spi_m_select3: p9_6_scb2_spi_m_select3 {
+				DT_CAT1_PINCTRL_INFO(9, 6, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT3);
+			};
+			p10_6_scb1_spi_m_select3: p10_6_scb1_spi_m_select3 {
+				DT_CAT1_PINCTRL_INFO(10, 6, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT3);
+			};
+			p11_6_scb5_spi_m_select3: p11_6_scb5_spi_m_select3 {
+				DT_CAT1_PINCTRL_INFO(11, 6, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT3);
+			};
+			p12_6_scb6_spi_m_select3: p12_6_scb6_spi_m_select3 {
+				DT_CAT1_PINCTRL_INFO(12, 6, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT3);
+			};
+			p13_6_scb6_spi_m_select3: p13_6_scb6_spi_m_select3 {
+				DT_CAT1_PINCTRL_INFO(13, 6, HSIOM_SEL_ACT_8, SCB_SPI_M_SELECT3);
+			};
+
+			/* scb_spi_s_clk */
+			p0_4_scb0_spi_s_clk: p0_4_scb0_spi_s_clk {
+				DT_CAT1_PINCTRL_INFO(0, 4, HSIOM_SEL_ACT_8, SCB_SPI_S_CLK);
+			};
+			p1_2_scb7_spi_s_clk: p1_2_scb7_spi_s_clk {
+				DT_CAT1_PINCTRL_INFO(1, 2, HSIOM_SEL_ACT_8, SCB_SPI_S_CLK);
+			};
+			p5_2_scb5_spi_s_clk: p5_2_scb5_spi_s_clk {
+				DT_CAT1_PINCTRL_INFO(5, 2, HSIOM_SEL_ACT_8, SCB_SPI_S_CLK);
+			};
+			p6_2_scb3_spi_s_clk: p6_2_scb3_spi_s_clk {
+				DT_CAT1_PINCTRL_INFO(6, 2, HSIOM_SEL_ACT_8, SCB_SPI_S_CLK);
+			};
+			p6_2_scb8_spi_s_clk: p6_2_scb8_spi_s_clk {
+				DT_CAT1_PINCTRL_INFO(6, 2, HSIOM_SEL_DS_6, SCB_SPI_S_CLK);
+			};
+			p6_6_scb6_spi_s_clk: p6_6_scb6_spi_s_clk {
+				DT_CAT1_PINCTRL_INFO(6, 6, HSIOM_SEL_ACT_8, SCB_SPI_S_CLK);
+			};
+			p6_6_scb8_spi_s_clk: p6_6_scb8_spi_s_clk {
+				DT_CAT1_PINCTRL_INFO(6, 6, HSIOM_SEL_DS_6, SCB_SPI_S_CLK);
+			};
+			p7_2_scb4_spi_s_clk: p7_2_scb4_spi_s_clk {
+				DT_CAT1_PINCTRL_INFO(7, 2, HSIOM_SEL_ACT_8, SCB_SPI_S_CLK);
+			};
+			p8_2_scb4_spi_s_clk: p8_2_scb4_spi_s_clk {
+				DT_CAT1_PINCTRL_INFO(8, 2, HSIOM_SEL_ACT_8, SCB_SPI_S_CLK);
+			};
+			p9_2_scb2_spi_s_clk: p9_2_scb2_spi_s_clk {
+				DT_CAT1_PINCTRL_INFO(9, 2, HSIOM_SEL_ACT_8, SCB_SPI_S_CLK);
+			};
+			p10_2_scb1_spi_s_clk: p10_2_scb1_spi_s_clk {
+				DT_CAT1_PINCTRL_INFO(10, 2, HSIOM_SEL_ACT_8, SCB_SPI_S_CLK);
+			};
+			p11_2_scb5_spi_s_clk: p11_2_scb5_spi_s_clk {
+				DT_CAT1_PINCTRL_INFO(11, 2, HSIOM_SEL_ACT_8, SCB_SPI_S_CLK);
+			};
+			p12_2_scb6_spi_s_clk: p12_2_scb6_spi_s_clk {
+				DT_CAT1_PINCTRL_INFO(12, 2, HSIOM_SEL_ACT_8, SCB_SPI_S_CLK);
+			};
+
+			/* scb_spi_s_miso */
+			p0_3_scb0_spi_s_miso: p0_3_scb0_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(0, 3, HSIOM_SEL_ACT_8, SCB_SPI_S_MISO);
+			};
+			p1_1_scb7_spi_s_miso: p1_1_scb7_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(1, 1, HSIOM_SEL_ACT_8, SCB_SPI_S_MISO);
+			};
+			p5_1_scb5_spi_s_miso: p5_1_scb5_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(5, 1, HSIOM_SEL_ACT_8, SCB_SPI_S_MISO);
+			};
+			p6_1_scb3_spi_s_miso: p6_1_scb3_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(6, 1, HSIOM_SEL_ACT_8, SCB_SPI_S_MISO);
+			};
+			p6_1_scb8_spi_s_miso: p6_1_scb8_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(6, 1, HSIOM_SEL_DS_6, SCB_SPI_S_MISO);
+			};
+			p6_5_scb6_spi_s_miso: p6_5_scb6_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(6, 5, HSIOM_SEL_ACT_8, SCB_SPI_S_MISO);
+			};
+			p6_5_scb8_spi_s_miso: p6_5_scb8_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(6, 5, HSIOM_SEL_DS_6, SCB_SPI_S_MISO);
+			};
+			p7_1_scb4_spi_s_miso: p7_1_scb4_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(7, 1, HSIOM_SEL_ACT_8, SCB_SPI_S_MISO);
+			};
+			p8_1_scb4_spi_s_miso: p8_1_scb4_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(8, 1, HSIOM_SEL_ACT_8, SCB_SPI_S_MISO);
+			};
+			p9_1_scb2_spi_s_miso: p9_1_scb2_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(9, 1, HSIOM_SEL_ACT_8, SCB_SPI_S_MISO);
+			};
+			p10_1_scb1_spi_s_miso: p10_1_scb1_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(10, 1, HSIOM_SEL_ACT_8, SCB_SPI_S_MISO);
+			};
+			p11_1_scb5_spi_s_miso: p11_1_scb5_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(11, 1, HSIOM_SEL_ACT_8, SCB_SPI_S_MISO);
+			};
+			p12_1_scb6_spi_s_miso: p12_1_scb6_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(12, 1, HSIOM_SEL_ACT_8, SCB_SPI_S_MISO);
+			};
+			p13_1_scb6_spi_s_miso: p13_1_scb6_spi_s_miso {
+				DT_CAT1_PINCTRL_INFO(13, 1, HSIOM_SEL_ACT_8, SCB_SPI_S_MISO);
+			};
+
+			/* scb_spi_s_mosi */
+			p0_2_scb0_spi_s_mosi: p0_2_scb0_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(0, 2, HSIOM_SEL_ACT_8, SCB_SPI_S_MOSI);
+			};
+			p1_0_scb7_spi_s_mosi: p1_0_scb7_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(1, 0, HSIOM_SEL_ACT_8, SCB_SPI_S_MOSI);
+			};
+			p5_0_scb5_spi_s_mosi: p5_0_scb5_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(5, 0, HSIOM_SEL_ACT_8, SCB_SPI_S_MOSI);
+			};
+			p6_0_scb3_spi_s_mosi: p6_0_scb3_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(6, 0, HSIOM_SEL_ACT_8, SCB_SPI_S_MOSI);
+			};
+			p6_0_scb8_spi_s_mosi: p6_0_scb8_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(6, 0, HSIOM_SEL_DS_6, SCB_SPI_S_MOSI);
+			};
+			p6_4_scb6_spi_s_mosi: p6_4_scb6_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(6, 4, HSIOM_SEL_ACT_8, SCB_SPI_S_MOSI);
+			};
+			p6_4_scb8_spi_s_mosi: p6_4_scb8_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(6, 4, HSIOM_SEL_DS_6, SCB_SPI_S_MOSI);
+			};
+			p7_0_scb4_spi_s_mosi: p7_0_scb4_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(7, 0, HSIOM_SEL_ACT_8, SCB_SPI_S_MOSI);
+			};
+			p8_0_scb4_spi_s_mosi: p8_0_scb4_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(8, 0, HSIOM_SEL_ACT_8, SCB_SPI_S_MOSI);
+			};
+			p9_0_scb2_spi_s_mosi: p9_0_scb2_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(9, 0, HSIOM_SEL_ACT_8, SCB_SPI_S_MOSI);
+			};
+			p10_0_scb1_spi_s_mosi: p10_0_scb1_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(10, 0, HSIOM_SEL_ACT_8, SCB_SPI_S_MOSI);
+			};
+			p11_0_scb5_spi_s_mosi: p11_0_scb5_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(11, 0, HSIOM_SEL_ACT_8, SCB_SPI_S_MOSI);
+			};
+			p12_0_scb6_spi_s_mosi: p12_0_scb6_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(12, 0, HSIOM_SEL_ACT_8, SCB_SPI_S_MOSI);
+			};
+			p13_0_scb6_spi_s_mosi: p13_0_scb6_spi_s_mosi {
+				DT_CAT1_PINCTRL_INFO(13, 0, HSIOM_SEL_ACT_8, SCB_SPI_S_MOSI);
+			};
+
+			/* scb_spi_s_select0 */
+			p0_5_scb0_spi_s_select0: p0_5_scb0_spi_s_select0 {
+				DT_CAT1_PINCTRL_INFO(0, 5, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT0);
+			};
+			p5_3_scb5_spi_s_select0: p5_3_scb5_spi_s_select0 {
+				DT_CAT1_PINCTRL_INFO(5, 3, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT0);
+			};
+			p6_3_scb3_spi_s_select0: p6_3_scb3_spi_s_select0 {
+				DT_CAT1_PINCTRL_INFO(6, 3, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT0);
+			};
+			p6_3_scb8_spi_s_select0: p6_3_scb8_spi_s_select0 {
+				DT_CAT1_PINCTRL_INFO(6, 3, HSIOM_SEL_DS_6, SCB_SPI_S_SELECT0);
+			};
+			p6_7_scb6_spi_s_select0: p6_7_scb6_spi_s_select0 {
+				DT_CAT1_PINCTRL_INFO(6, 7, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT0);
+			};
+			p6_7_scb8_spi_s_select0: p6_7_scb8_spi_s_select0 {
+				DT_CAT1_PINCTRL_INFO(6, 7, HSIOM_SEL_DS_6, SCB_SPI_S_SELECT0);
+			};
+			p7_3_scb4_spi_s_select0: p7_3_scb4_spi_s_select0 {
+				DT_CAT1_PINCTRL_INFO(7, 3, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT0);
+			};
+			p8_3_scb4_spi_s_select0: p8_3_scb4_spi_s_select0 {
+				DT_CAT1_PINCTRL_INFO(8, 3, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT0);
+			};
+			p9_3_scb2_spi_s_select0: p9_3_scb2_spi_s_select0 {
+				DT_CAT1_PINCTRL_INFO(9, 3, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT0);
+			};
+			p10_3_scb1_spi_s_select0: p10_3_scb1_spi_s_select0 {
+				DT_CAT1_PINCTRL_INFO(10, 3, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT0);
+			};
+			p11_3_scb5_spi_s_select0: p11_3_scb5_spi_s_select0 {
+				DT_CAT1_PINCTRL_INFO(11, 3, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT0);
+			};
+			p12_3_scb6_spi_s_select0: p12_3_scb6_spi_s_select0 {
+				DT_CAT1_PINCTRL_INFO(12, 3, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT0);
+			};
+
+			/* scb_spi_s_select1 */
+			p0_0_scb0_spi_s_select1: p0_0_scb0_spi_s_select1 {
+				DT_CAT1_PINCTRL_INFO(0, 0, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT1);
+			};
+			p5_4_scb5_spi_s_select1: p5_4_scb5_spi_s_select1 {
+				DT_CAT1_PINCTRL_INFO(5, 4, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT1);
+			};
+			p7_4_scb4_spi_s_select1: p7_4_scb4_spi_s_select1 {
+				DT_CAT1_PINCTRL_INFO(7, 4, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT1);
+			};
+			p7_7_scb3_spi_s_select1: p7_7_scb3_spi_s_select1 {
+				DT_CAT1_PINCTRL_INFO(7, 7, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT1);
+			};
+			p8_4_scb4_spi_s_select1: p8_4_scb4_spi_s_select1 {
+				DT_CAT1_PINCTRL_INFO(8, 4, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT1);
+			};
+			p9_4_scb2_spi_s_select1: p9_4_scb2_spi_s_select1 {
+				DT_CAT1_PINCTRL_INFO(9, 4, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT1);
+			};
+			p10_4_scb1_spi_s_select1: p10_4_scb1_spi_s_select1 {
+				DT_CAT1_PINCTRL_INFO(10, 4, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT1);
+			};
+			p11_4_scb5_spi_s_select1: p11_4_scb5_spi_s_select1 {
+				DT_CAT1_PINCTRL_INFO(11, 4, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT1);
+			};
+			p12_4_scb6_spi_s_select1: p12_4_scb6_spi_s_select1 {
+				DT_CAT1_PINCTRL_INFO(12, 4, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT1);
+			};
+
+			/* scb_spi_s_select2 */
+			p0_1_scb0_spi_s_select2: p0_1_scb0_spi_s_select2 {
+				DT_CAT1_PINCTRL_INFO(0, 1, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT2);
+			};
+			p5_5_scb5_spi_s_select2: p5_5_scb5_spi_s_select2 {
+				DT_CAT1_PINCTRL_INFO(5, 5, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT2);
+			};
+			p7_5_scb4_spi_s_select2: p7_5_scb4_spi_s_select2 {
+				DT_CAT1_PINCTRL_INFO(7, 5, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT2);
+			};
+			p8_5_scb4_spi_s_select2: p8_5_scb4_spi_s_select2 {
+				DT_CAT1_PINCTRL_INFO(8, 5, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT2);
+			};
+			p8_7_scb3_spi_s_select2: p8_7_scb3_spi_s_select2 {
+				DT_CAT1_PINCTRL_INFO(8, 7, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT2);
+			};
+			p9_5_scb2_spi_s_select2: p9_5_scb2_spi_s_select2 {
+				DT_CAT1_PINCTRL_INFO(9, 5, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT2);
+			};
+			p10_5_scb1_spi_s_select2: p10_5_scb1_spi_s_select2 {
+				DT_CAT1_PINCTRL_INFO(10, 5, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT2);
+			};
+			p11_5_scb5_spi_s_select2: p11_5_scb5_spi_s_select2 {
+				DT_CAT1_PINCTRL_INFO(11, 5, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT2);
+			};
+			p12_5_scb6_spi_s_select2: p12_5_scb6_spi_s_select2 {
+				DT_CAT1_PINCTRL_INFO(12, 5, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT2);
+			};
+
+			/* scb_spi_s_select3 */
+			p5_6_scb5_spi_s_select3: p5_6_scb5_spi_s_select3 {
+				DT_CAT1_PINCTRL_INFO(5, 6, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT3);
+			};
+			p7_6_scb4_spi_s_select3: p7_6_scb4_spi_s_select3 {
+				DT_CAT1_PINCTRL_INFO(7, 6, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT3);
+			};
+			p8_6_scb4_spi_s_select3: p8_6_scb4_spi_s_select3 {
+				DT_CAT1_PINCTRL_INFO(8, 6, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT3);
+			};
+			p9_6_scb2_spi_s_select3: p9_6_scb2_spi_s_select3 {
+				DT_CAT1_PINCTRL_INFO(9, 6, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT3);
+			};
+			p10_6_scb1_spi_s_select3: p10_6_scb1_spi_s_select3 {
+				DT_CAT1_PINCTRL_INFO(10, 6, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT3);
+			};
+			p11_6_scb5_spi_s_select3: p11_6_scb5_spi_s_select3 {
+				DT_CAT1_PINCTRL_INFO(11, 6, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT3);
+			};
+			p12_6_scb6_spi_s_select3: p12_6_scb6_spi_s_select3 {
+				DT_CAT1_PINCTRL_INFO(12, 6, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT3);
+			};
+			p13_6_scb6_spi_s_select3: p13_6_scb6_spi_s_select3 {
+				DT_CAT1_PINCTRL_INFO(13, 6, HSIOM_SEL_ACT_8, SCB_SPI_S_SELECT3);
+			};
+
+			/* scb_uart_cts */
+			p0_5_scb0_uart_cts: p0_5_scb0_uart_cts {
+				DT_CAT1_PINCTRL_INFO(0, 5, HSIOM_SEL_ACT_6, SCB_UART_CTS);
+			};
+			p5_3_scb5_uart_cts: p5_3_scb5_uart_cts {
+				DT_CAT1_PINCTRL_INFO(5, 3, HSIOM_SEL_ACT_6, SCB_UART_CTS);
+			};
+			p6_3_scb3_uart_cts: p6_3_scb3_uart_cts {
+				DT_CAT1_PINCTRL_INFO(6, 3, HSIOM_SEL_ACT_6, SCB_UART_CTS);
+			};
+			p6_7_scb6_uart_cts: p6_7_scb6_uart_cts {
+				DT_CAT1_PINCTRL_INFO(6, 7, HSIOM_SEL_ACT_6, SCB_UART_CTS);
+			};
+			p7_3_scb4_uart_cts: p7_3_scb4_uart_cts {
+				DT_CAT1_PINCTRL_INFO(7, 3, HSIOM_SEL_ACT_6, SCB_UART_CTS);
+			};
+			p8_3_scb4_uart_cts: p8_3_scb4_uart_cts {
+				DT_CAT1_PINCTRL_INFO(8, 3, HSIOM_SEL_ACT_6, SCB_UART_CTS);
+			};
+			p9_3_scb2_uart_cts: p9_3_scb2_uart_cts {
+				DT_CAT1_PINCTRL_INFO(9, 3, HSIOM_SEL_ACT_6, SCB_UART_CTS);
+			};
+			p10_3_scb1_uart_cts: p10_3_scb1_uart_cts {
+				DT_CAT1_PINCTRL_INFO(10, 3, HSIOM_SEL_ACT_6, SCB_UART_CTS);
+			};
+			p11_3_scb5_uart_cts: p11_3_scb5_uart_cts {
+				DT_CAT1_PINCTRL_INFO(11, 3, HSIOM_SEL_ACT_6, SCB_UART_CTS);
+			};
+			p12_3_scb6_uart_cts: p12_3_scb6_uart_cts {
+				DT_CAT1_PINCTRL_INFO(12, 3, HSIOM_SEL_ACT_6, SCB_UART_CTS);
+			};
+
+			/* scb_uart_rts */
+			p0_4_scb0_uart_rts: p0_4_scb0_uart_rts {
+				DT_CAT1_PINCTRL_INFO(0, 4, HSIOM_SEL_ACT_6, SCB_UART_RTS);
+			};
+			p1_2_scb7_uart_rts: p1_2_scb7_uart_rts {
+				DT_CAT1_PINCTRL_INFO(1, 2, HSIOM_SEL_ACT_6, SCB_UART_RTS);
+			};
+			p5_2_scb5_uart_rts: p5_2_scb5_uart_rts {
+				DT_CAT1_PINCTRL_INFO(5, 2, HSIOM_SEL_ACT_6, SCB_UART_RTS);
+			};
+			p6_2_scb3_uart_rts: p6_2_scb3_uart_rts {
+				DT_CAT1_PINCTRL_INFO(6, 2, HSIOM_SEL_ACT_6, SCB_UART_RTS);
+			};
+			p6_6_scb6_uart_rts: p6_6_scb6_uart_rts {
+				DT_CAT1_PINCTRL_INFO(6, 6, HSIOM_SEL_ACT_6, SCB_UART_RTS);
+			};
+			p7_2_scb4_uart_rts: p7_2_scb4_uart_rts {
+				DT_CAT1_PINCTRL_INFO(7, 2, HSIOM_SEL_ACT_6, SCB_UART_RTS);
+			};
+			p8_2_scb4_uart_rts: p8_2_scb4_uart_rts {
+				DT_CAT1_PINCTRL_INFO(8, 2, HSIOM_SEL_ACT_6, SCB_UART_RTS);
+			};
+			p9_2_scb2_uart_rts: p9_2_scb2_uart_rts {
+				DT_CAT1_PINCTRL_INFO(9, 2, HSIOM_SEL_ACT_6, SCB_UART_RTS);
+			};
+			p10_2_scb1_uart_rts: p10_2_scb1_uart_rts {
+				DT_CAT1_PINCTRL_INFO(10, 2, HSIOM_SEL_ACT_6, SCB_UART_RTS);
+			};
+			p11_2_scb5_uart_rts: p11_2_scb5_uart_rts {
+				DT_CAT1_PINCTRL_INFO(11, 2, HSIOM_SEL_ACT_6, SCB_UART_RTS);
+			};
+			p12_2_scb6_uart_rts: p12_2_scb6_uart_rts {
+				DT_CAT1_PINCTRL_INFO(12, 2, HSIOM_SEL_ACT_6, SCB_UART_RTS);
+			};
+
+			/* scb_uart_rx */
+			p0_2_scb0_uart_rx: p0_2_scb0_uart_rx {
+				DT_CAT1_PINCTRL_INFO(0, 2, HSIOM_SEL_ACT_6, SCB_UART_RX);
+			};
+			p1_0_scb7_uart_rx: p1_0_scb7_uart_rx {
+				DT_CAT1_PINCTRL_INFO(1, 0, HSIOM_SEL_ACT_6, SCB_UART_RX);
+			};
+			p5_0_scb5_uart_rx: p5_0_scb5_uart_rx {
+				DT_CAT1_PINCTRL_INFO(5, 0, HSIOM_SEL_ACT_6, SCB_UART_RX);
+			};
+			p6_0_scb3_uart_rx: p6_0_scb3_uart_rx {
+				DT_CAT1_PINCTRL_INFO(6, 0, HSIOM_SEL_ACT_6, SCB_UART_RX);
+			};
+			p6_4_scb6_uart_rx: p6_4_scb6_uart_rx {
+				DT_CAT1_PINCTRL_INFO(6, 4, HSIOM_SEL_ACT_6, SCB_UART_RX);
+			};
+			p7_0_scb4_uart_rx: p7_0_scb4_uart_rx {
+				DT_CAT1_PINCTRL_INFO(7, 0, HSIOM_SEL_ACT_6, SCB_UART_RX);
+			};
+			p8_0_scb4_uart_rx: p8_0_scb4_uart_rx {
+				DT_CAT1_PINCTRL_INFO(8, 0, HSIOM_SEL_ACT_6, SCB_UART_RX);
+			};
+			p9_0_scb2_uart_rx: p9_0_scb2_uart_rx {
+				DT_CAT1_PINCTRL_INFO(9, 0, HSIOM_SEL_ACT_6, SCB_UART_RX);
+			};
+			p10_0_scb1_uart_rx: p10_0_scb1_uart_rx {
+				DT_CAT1_PINCTRL_INFO(10, 0, HSIOM_SEL_ACT_6, SCB_UART_RX);
+			};
+			p11_0_scb5_uart_rx: p11_0_scb5_uart_rx {
+				DT_CAT1_PINCTRL_INFO(11, 0, HSIOM_SEL_ACT_6, SCB_UART_RX);
+			};
+			p12_0_scb6_uart_rx: p12_0_scb6_uart_rx {
+				DT_CAT1_PINCTRL_INFO(12, 0, HSIOM_SEL_ACT_6, SCB_UART_RX);
+			};
+			p13_0_scb6_uart_rx: p13_0_scb6_uart_rx {
+				DT_CAT1_PINCTRL_INFO(13, 0, HSIOM_SEL_ACT_6, SCB_UART_RX);
+			};
+
+			/* scb_uart_tx */
+			p0_3_scb0_uart_tx: p0_3_scb0_uart_tx {
+				DT_CAT1_PINCTRL_INFO(0, 3, HSIOM_SEL_ACT_6, SCB_UART_TX);
+			};
+			p1_1_scb7_uart_tx: p1_1_scb7_uart_tx {
+				DT_CAT1_PINCTRL_INFO(1, 1, HSIOM_SEL_ACT_6, SCB_UART_TX);
+			};
+			p5_1_scb5_uart_tx: p5_1_scb5_uart_tx {
+				DT_CAT1_PINCTRL_INFO(5, 1, HSIOM_SEL_ACT_6, SCB_UART_TX);
+			};
+			p6_1_scb3_uart_tx: p6_1_scb3_uart_tx {
+				DT_CAT1_PINCTRL_INFO(6, 1, HSIOM_SEL_ACT_6, SCB_UART_TX);
+			};
+			p6_5_scb6_uart_tx: p6_5_scb6_uart_tx {
+				DT_CAT1_PINCTRL_INFO(6, 5, HSIOM_SEL_ACT_6, SCB_UART_TX);
+			};
+			p7_1_scb4_uart_tx: p7_1_scb4_uart_tx {
+				DT_CAT1_PINCTRL_INFO(7, 1, HSIOM_SEL_ACT_6, SCB_UART_TX);
+			};
+			p8_1_scb4_uart_tx: p8_1_scb4_uart_tx {
+				DT_CAT1_PINCTRL_INFO(8, 1, HSIOM_SEL_ACT_6, SCB_UART_TX);
+			};
+			p9_1_scb2_uart_tx: p9_1_scb2_uart_tx {
+				DT_CAT1_PINCTRL_INFO(9, 1, HSIOM_SEL_ACT_6, SCB_UART_TX);
+			};
+			p10_1_scb1_uart_tx: p10_1_scb1_uart_tx {
+				DT_CAT1_PINCTRL_INFO(10, 1, HSIOM_SEL_ACT_6, SCB_UART_TX);
+			};
+			p11_1_scb5_uart_tx: p11_1_scb5_uart_tx {
+				DT_CAT1_PINCTRL_INFO(11, 1, HSIOM_SEL_ACT_6, SCB_UART_TX);
+			};
+			p12_1_scb6_uart_tx: p12_1_scb6_uart_tx {
+				DT_CAT1_PINCTRL_INFO(12, 1, HSIOM_SEL_ACT_6, SCB_UART_TX);
+			};
+			p13_1_scb6_uart_tx: p13_1_scb6_uart_tx {
+				DT_CAT1_PINCTRL_INFO(13, 1, HSIOM_SEL_ACT_6, SCB_UART_TX);
+			};
+
+			/* smif_spi_clk */
+			p11_7_smif0_spi_clk: p11_7_smif0_spi_clk {
+				DT_CAT1_PINCTRL_INFO(11, 7, HSIOM_SEL_ACT_5, SMIF_SPI_CLK);
+			};
+
+			/* smif_spi_data0 */
+			p11_6_smif0_spi_data0: p11_6_smif0_spi_data0 {
+				DT_CAT1_PINCTRL_INFO(11, 6, HSIOM_SEL_ACT_5, SMIF_SPI_DATA0);
+			};
+
+			/* smif_spi_data1 */
+			p11_5_smif0_spi_data1: p11_5_smif0_spi_data1 {
+				DT_CAT1_PINCTRL_INFO(11, 5, HSIOM_SEL_ACT_5, SMIF_SPI_DATA1);
+			};
+
+			/* smif_spi_data2 */
+			p11_4_smif0_spi_data2: p11_4_smif0_spi_data2 {
+				DT_CAT1_PINCTRL_INFO(11, 4, HSIOM_SEL_ACT_5, SMIF_SPI_DATA2);
+			};
+
+			/* smif_spi_data3 */
+			p11_3_smif0_spi_data3: p11_3_smif0_spi_data3 {
+				DT_CAT1_PINCTRL_INFO(11, 3, HSIOM_SEL_ACT_5, SMIF_SPI_DATA3);
+			};
+
+			/* smif_spi_data4 */
+			p12_0_smif0_spi_data4: p12_0_smif0_spi_data4 {
+				DT_CAT1_PINCTRL_INFO(12, 0, HSIOM_SEL_ACT_5, SMIF_SPI_DATA4);
+			};
+
+			/* smif_spi_data5 */
+			p12_1_smif0_spi_data5: p12_1_smif0_spi_data5 {
+				DT_CAT1_PINCTRL_INFO(12, 1, HSIOM_SEL_ACT_5, SMIF_SPI_DATA5);
+			};
+
+			/* smif_spi_data6 */
+			p12_2_smif0_spi_data6: p12_2_smif0_spi_data6 {
+				DT_CAT1_PINCTRL_INFO(12, 2, HSIOM_SEL_ACT_5, SMIF_SPI_DATA6);
+			};
+
+			/* smif_spi_data7 */
+			p12_3_smif0_spi_data7: p12_3_smif0_spi_data7 {
+				DT_CAT1_PINCTRL_INFO(12, 3, HSIOM_SEL_ACT_5, SMIF_SPI_DATA7);
+			};
+
+			/* smif_spi_select0 */
+			p11_2_smif0_spi_select0: p11_2_smif0_spi_select0 {
+				DT_CAT1_PINCTRL_INFO(11, 2, HSIOM_SEL_ACT_5, SMIF_SPI_SELECT0);
+			};
+
+			/* smif_spi_select1 */
+			p11_1_smif0_spi_select1: p11_1_smif0_spi_select1 {
+				DT_CAT1_PINCTRL_INFO(11, 1, HSIOM_SEL_ACT_5, SMIF_SPI_SELECT1);
+			};
+
+			/* smif_spi_select2 */
+			p11_0_smif0_spi_select2: p11_0_smif0_spi_select2 {
+				DT_CAT1_PINCTRL_INFO(11, 0, HSIOM_SEL_ACT_5, SMIF_SPI_SELECT2);
+			};
+
+			/* smif_spi_select3 */
+			p12_4_smif0_spi_select3: p12_4_smif0_spi_select3 {
+				DT_CAT1_PINCTRL_INFO(12, 4, HSIOM_SEL_ACT_5, SMIF_SPI_SELECT3);
+			};
+
+			/* tcpwm_line */
+			p0_0_tcpwm0_line: p0_0_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(0, 0, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p0_0_tcpwm1_line: p0_0_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(0, 0, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p0_2_tcpwm0_line: p0_2_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(0, 2, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p0_2_tcpwm1_line: p0_2_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(0, 2, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p0_4_tcpwm0_line: p0_4_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(0, 4, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p0_4_tcpwm1_line: p0_4_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(0, 4, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p1_0_tcpwm0_line: p1_0_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(1, 0, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p1_0_tcpwm1_line: p1_0_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(1, 0, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p1_2_tcpwm0_line: p1_2_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(1, 2, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p1_2_tcpwm1_line: p1_2_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(1, 2, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p5_0_tcpwm0_line: p5_0_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(5, 0, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p5_0_tcpwm1_line: p5_0_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(5, 0, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p5_2_tcpwm0_line: p5_2_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(5, 2, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p5_2_tcpwm1_line: p5_2_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(5, 2, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p5_4_tcpwm0_line: p5_4_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(5, 4, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p5_4_tcpwm1_line: p5_4_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(5, 4, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p5_6_tcpwm0_line: p5_6_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(5, 6, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p5_6_tcpwm1_line: p5_6_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(5, 6, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p6_0_tcpwm0_line: p6_0_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(6, 0, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p6_0_tcpwm1_line: p6_0_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(6, 0, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p6_2_tcpwm0_line: p6_2_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(6, 2, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p6_2_tcpwm1_line: p6_2_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(6, 2, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p6_4_tcpwm0_line: p6_4_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(6, 4, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p6_4_tcpwm1_line: p6_4_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(6, 4, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p6_6_tcpwm0_line: p6_6_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(6, 6, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p6_6_tcpwm1_line: p6_6_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(6, 6, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p7_0_tcpwm0_line: p7_0_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(7, 0, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p7_0_tcpwm1_line: p7_0_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(7, 0, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p7_2_tcpwm0_line: p7_2_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(7, 2, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p7_2_tcpwm1_line: p7_2_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(7, 2, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p7_4_tcpwm0_line: p7_4_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(7, 4, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p7_4_tcpwm1_line: p7_4_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(7, 4, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p7_6_tcpwm0_line: p7_6_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(7, 6, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p7_6_tcpwm1_line: p7_6_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(7, 6, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p8_0_tcpwm0_line: p8_0_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(8, 0, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p8_0_tcpwm1_line: p8_0_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(8, 0, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p8_2_tcpwm0_line: p8_2_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(8, 2, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p8_2_tcpwm1_line: p8_2_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(8, 2, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p8_4_tcpwm0_line: p8_4_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(8, 4, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p8_4_tcpwm1_line: p8_4_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(8, 4, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p8_6_tcpwm0_line: p8_6_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(8, 6, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p8_6_tcpwm1_line: p8_6_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(8, 6, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p9_0_tcpwm0_line: p9_0_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(9, 0, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p9_0_tcpwm1_line: p9_0_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(9, 0, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p9_2_tcpwm0_line: p9_2_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(9, 2, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p9_2_tcpwm1_line: p9_2_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(9, 2, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p9_4_tcpwm0_line: p9_4_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(9, 4, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p9_4_tcpwm1_line: p9_4_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(9, 4, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p9_6_tcpwm0_line: p9_6_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(9, 6, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p9_6_tcpwm1_line: p9_6_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(9, 6, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p10_0_tcpwm0_line: p10_0_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(10, 0, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p10_0_tcpwm1_line: p10_0_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(10, 0, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p10_2_tcpwm0_line: p10_2_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(10, 2, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p10_2_tcpwm1_line: p10_2_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(10, 2, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p10_4_tcpwm0_line: p10_4_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(10, 4, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p10_4_tcpwm1_line: p10_4_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(10, 4, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p10_6_tcpwm0_line: p10_6_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(10, 6, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p10_6_tcpwm1_line: p10_6_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(10, 6, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p11_0_tcpwm0_line: p11_0_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(11, 0, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p11_0_tcpwm1_line: p11_0_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(11, 0, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p11_2_tcpwm0_line: p11_2_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(11, 2, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p11_2_tcpwm1_line: p11_2_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(11, 2, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p11_4_tcpwm0_line: p11_4_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(11, 4, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p11_4_tcpwm1_line: p11_4_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(11, 4, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p12_0_tcpwm0_line: p12_0_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(12, 0, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p12_0_tcpwm1_line: p12_0_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(12, 0, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p12_2_tcpwm0_line: p12_2_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(12, 2, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p12_2_tcpwm1_line: p12_2_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(12, 2, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p12_4_tcpwm0_line: p12_4_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(12, 4, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p12_4_tcpwm1_line: p12_4_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(12, 4, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p12_6_tcpwm0_line: p12_6_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(12, 6, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p12_6_tcpwm1_line: p12_6_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(12, 6, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p13_0_tcpwm0_line: p13_0_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(13, 0, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p13_0_tcpwm1_line: p13_0_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(13, 0, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+			p13_6_tcpwm0_line: p13_6_tcpwm0_line {
+				DT_CAT1_PINCTRL_INFO(13, 6, HSIOM_SEL_ACT_0, TCPWM_LINE);
+			};
+			p13_6_tcpwm1_line: p13_6_tcpwm1_line {
+				DT_CAT1_PINCTRL_INFO(13, 6, HSIOM_SEL_ACT_1, TCPWM_LINE);
+			};
+
+			/* tcpwm_line_compl */
+			p0_1_tcpwm0_line_compl: p0_1_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(0, 1, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p0_1_tcpwm1_line_compl: p0_1_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(0, 1, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p0_3_tcpwm0_line_compl: p0_3_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(0, 3, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p0_3_tcpwm1_line_compl: p0_3_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(0, 3, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p0_5_tcpwm0_line_compl: p0_5_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(0, 5, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p0_5_tcpwm1_line_compl: p0_5_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(0, 5, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p1_1_tcpwm0_line_compl: p1_1_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(1, 1, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p1_1_tcpwm1_line_compl: p1_1_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(1, 1, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p5_1_tcpwm0_line_compl: p5_1_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(5, 1, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p5_1_tcpwm1_line_compl: p5_1_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(5, 1, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p5_3_tcpwm0_line_compl: p5_3_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(5, 3, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p5_3_tcpwm1_line_compl: p5_3_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(5, 3, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p5_5_tcpwm0_line_compl: p5_5_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(5, 5, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p5_5_tcpwm1_line_compl: p5_5_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(5, 5, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p6_1_tcpwm0_line_compl: p6_1_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(6, 1, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p6_1_tcpwm1_line_compl: p6_1_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(6, 1, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p6_3_tcpwm0_line_compl: p6_3_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(6, 3, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p6_3_tcpwm1_line_compl: p6_3_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(6, 3, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p6_5_tcpwm0_line_compl: p6_5_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(6, 5, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p6_5_tcpwm1_line_compl: p6_5_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(6, 5, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p6_7_tcpwm0_line_compl: p6_7_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(6, 7, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p6_7_tcpwm1_line_compl: p6_7_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(6, 7, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p7_1_tcpwm0_line_compl: p7_1_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(7, 1, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p7_1_tcpwm1_line_compl: p7_1_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(7, 1, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p7_3_tcpwm0_line_compl: p7_3_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(7, 3, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p7_3_tcpwm1_line_compl: p7_3_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(7, 3, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p7_5_tcpwm0_line_compl: p7_5_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(7, 5, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p7_5_tcpwm1_line_compl: p7_5_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(7, 5, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p7_7_tcpwm0_line_compl: p7_7_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(7, 7, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p7_7_tcpwm1_line_compl: p7_7_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(7, 7, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p8_1_tcpwm0_line_compl: p8_1_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(8, 1, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p8_1_tcpwm1_line_compl: p8_1_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(8, 1, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p8_3_tcpwm0_line_compl: p8_3_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(8, 3, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p8_3_tcpwm1_line_compl: p8_3_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(8, 3, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p8_5_tcpwm0_line_compl: p8_5_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(8, 5, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p8_5_tcpwm1_line_compl: p8_5_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(8, 5, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p8_7_tcpwm0_line_compl: p8_7_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(8, 7, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p8_7_tcpwm1_line_compl: p8_7_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(8, 7, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p9_1_tcpwm0_line_compl: p9_1_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(9, 1, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p9_1_tcpwm1_line_compl: p9_1_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(9, 1, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p9_3_tcpwm0_line_compl: p9_3_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(9, 3, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p9_3_tcpwm1_line_compl: p9_3_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(9, 3, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p9_5_tcpwm0_line_compl: p9_5_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(9, 5, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p9_5_tcpwm1_line_compl: p9_5_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(9, 5, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p9_7_tcpwm0_line_compl: p9_7_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(9, 7, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p9_7_tcpwm1_line_compl: p9_7_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(9, 7, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p10_1_tcpwm0_line_compl: p10_1_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(10, 1, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p10_1_tcpwm1_line_compl: p10_1_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(10, 1, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p10_3_tcpwm0_line_compl: p10_3_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(10, 3, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p10_3_tcpwm1_line_compl: p10_3_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(10, 3, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p10_5_tcpwm0_line_compl: p10_5_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(10, 5, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p10_5_tcpwm1_line_compl: p10_5_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(10, 5, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p11_1_tcpwm0_line_compl: p11_1_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(11, 1, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p11_1_tcpwm1_line_compl: p11_1_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(11, 1, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p11_3_tcpwm0_line_compl: p11_3_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(11, 3, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p11_3_tcpwm1_line_compl: p11_3_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(11, 3, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p11_5_tcpwm0_line_compl: p11_5_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(11, 5, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p11_5_tcpwm1_line_compl: p11_5_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(11, 5, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p12_1_tcpwm0_line_compl: p12_1_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(12, 1, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p12_1_tcpwm1_line_compl: p12_1_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(12, 1, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p12_3_tcpwm0_line_compl: p12_3_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(12, 3, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p12_3_tcpwm1_line_compl: p12_3_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(12, 3, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p12_5_tcpwm0_line_compl: p12_5_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(12, 5, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p12_5_tcpwm1_line_compl: p12_5_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(12, 5, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p12_7_tcpwm0_line_compl: p12_7_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(12, 7, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p12_7_tcpwm1_line_compl: p12_7_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(12, 7, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p13_1_tcpwm0_line_compl: p13_1_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(13, 1, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p13_1_tcpwm1_line_compl: p13_1_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(13, 1, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+			p13_7_tcpwm0_line_compl: p13_7_tcpwm0_line_compl {
+				DT_CAT1_PINCTRL_INFO(13, 7, HSIOM_SEL_ACT_0, TCPWM_LINE_COMPL);
+			};
+			p13_7_tcpwm1_line_compl: p13_7_tcpwm1_line_compl {
+				DT_CAT1_PINCTRL_INFO(13, 7, HSIOM_SEL_ACT_1, TCPWM_LINE_COMPL);
+			};
+
+		};
+	};
+};
