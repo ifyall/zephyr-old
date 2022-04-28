@@ -1,0 +1,13 @@
+# Infineon CAT1 Pin controller configuration options
+
+# Copyright (c) 2022 Cypress Semiconductor Corporation.
+# SPDX-License-Identifier: Apache-2.0
+
+DT_COMPAT_INFINEON_CAT1_PINCTRL := infineon,mtbhal-pinctrl
+
+config PINCTRL_INFINEON_CAT1
+	bool "Pin controller driver for Infineon CAT1 MCUs"
+	depends on SOC_FAMILY_CAT1
+		default $(dt_compat_enabled,$(DT_COMPAT_INFINEON_CAT1_PINCTRL))
+	help
+	  Enable Pin controller driver for Infineon CAT1 MCUs
