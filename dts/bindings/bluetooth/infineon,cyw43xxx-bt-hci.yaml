@@ -1,0 +1,27 @@
+# Copyright (c) 2021, Cypress
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    CYW43xxx Connectivity that uses Zephyr's Bluetooth Host Controller Interface UART
+    driver.
+
+compatible: "infineon,cyw43xxx-bt-hci"
+
+include: base.yaml
+
+properties:
+    bt-reg-on-gpios:
+      type: phandle-array
+      required: false
+
+    bt-host-wake-gpios:
+      type: phandle-array
+      required: false
+
+    bt-dev-wake-gpios:
+      type: phandle-array
+      required: false
+
+    baudrate_for_fw_download:
+       type: int
+       default: 3000000
