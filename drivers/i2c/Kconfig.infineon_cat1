@@ -1,0 +1,13 @@
+# Infineon CAT1 I2C configuration options
+
+# Copyright (c) 2022 Cypress Semiconductor Corporation.
+# SPDX-License-Identifier: Apache-2.0
+
+DT_COMPAT_INFINEON_CAT1_I2C := infineon,mtbhal-i2c
+
+config I2C_INFINEON_CAT1
+	bool "Infineon CAT1 I2C driver"
+		default $(dt_compat_enabled,$(DT_COMPAT_INFINEON_CAT1_I2C))
+	depends on SOC_FAMILY_CAT1
+	help
+	  This option enables the I2C driver for Infineon CAT1 family.
