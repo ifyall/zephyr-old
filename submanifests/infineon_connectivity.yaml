@@ -1,7 +1,7 @@
 manifest:
   projects:
     - name: infineon_zephyr_connectivity
-      url: http://devops-git.aus.cypress.com/zephyrproject-rtos/infineon_zephyr_connectivity.git
+      url: https://github.com/ifyall/infineon_zephyr_connectivity.git
       submodules: true
       revision: develop
       path: modules/hal/infineon_connectivity
