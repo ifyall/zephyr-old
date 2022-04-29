@@ -72,6 +72,9 @@ static const char * const devices[] = {
 #ifdef CONFIG_COUNTER_NATIVE_POSIX
 	DT_LABEL(DT_NODELABEL(counter0)),
 #endif
+#ifdef CONFIG_COUNTER_INFINEON_CAT1
+	DT_LABEL(DT_NODELABEL(counter0_0)),
+#endif
 	/* NOTE: there is no trailing comma, as the DT_LABELS_FOR_COMPAT
 	 * handles it.
 	 */
