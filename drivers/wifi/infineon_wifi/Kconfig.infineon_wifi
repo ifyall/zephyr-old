@@ -1,0 +1,4 @@
+# Copyright (c) 2022 Cypress Semiconductor Corporation.
+# SPDX-License-Identifier: Apache-2.0
+
+source "drivers/wifi/infineon_wifi/Kconfig.cyw43xxx"
