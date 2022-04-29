@@ -1,0 +1,11 @@
+/*
+ * Copyright (c) 2021 Cypress Semiconductor Corporation.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	aliases {
+		accel-0 = &i2c3;
+
+	};
+};
