@@ -22,7 +22,7 @@ manifest:
     - name: upstream
       url-base: https://github.com/zephyrproject-rtos
     - name: infineon_dev
-      url-base: http://devops-git.aus.cypress.com/zephyrproject-rtos
+      url-base: https://github.com/ifyall/
 
   #
   # Please add items below based on alphabetical order
