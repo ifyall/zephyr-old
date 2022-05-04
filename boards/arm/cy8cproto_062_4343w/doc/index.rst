@@ -97,7 +97,8 @@ The following steps shows how to enable Infineon Connectivity Zephyr module in p
 
     west init
 
-2. Add infineon_connectivity.yaml manifest in to zephyr/submanifests folder. The snipped of infineon_connectivity.yaml below:
+2. Add an infineon_connectivity.yaml manifest file in to zephyr/submanifests folder. There is an example yaml file in this directory.
+Use the snippet of infineon_connectivity.yaml below:
 
 .. code-block:: yaml
 
@@ -118,32 +119,63 @@ The following steps shows how to enable Infineon Connectivity Zephyr module in p
 
    west update
 
+3. Update Zephyr modules and export the environment
+
+.. code-block:: console
+
+   west update
+   west zephyr-export
+
+
+Build blinking led sample
+*************************
+Here is an example for the :ref:`blinky-sample` application.
+
+.. code-block:: console
+
+   cd zephyr
+   west build -p auto -b cy8cproto_062_4343w samples/basic/blink
+
+OpenOCD Installation
+====================
+
+You must download `Infineon OpenOCD`_ from Github to flash and debug.
+Extract the files and note the path.
 
 Programming and Debugging
 *************************
 
 The CY8CPROTO-062-4343W includes an onboard programmer/debugger (KitProg2) with
 mass storage programming to provide debugging, flash programming, and serial
-communication over USB.
+communication over USB. Flash and debug commands must be pointed to the Cypress
+OpenOCD you downloaded above.
 
-OpenOCD Installation
+On Windows:
+
+.. code-block:: console
+
+   west flash --openocd /path/to/your/openocd/bin/openocd.exe
+   west debug --openocd /path/to/your/openocd/bin/openocd.exe
+
+On Linux:
+
+.. code-block:: console
+
+   west flash --openocd /path/to/your/openocd/bin/openocd
+   west debug --openocd /path/to/your/openocd/bin/openocd
+
+Once the gdb console starts after executing the west debug command, you may
+now set breakpoints and perform other standard GDB debugging on the PSoC 6 CM4 core.
+
+Errata
 ====================
 
-You can download `Cypress OpenOCD`_ from Github.
-Install the OpenOCD programming tool and add the path to its location in PATH.
-
-
-Testing blinking led
-********************
-Here is an example for the :ref:`blinky-sample` application.
-
-.. zephyr-app-commands::
-   :zephyr-app: samples/basic/blinky
-   :board: cy8cproto_062_4343w
-   :goals: build flash
-
-You will see the LED blinking every second.
-
++------------------------------------------------+----------------------------------------+
+| Problem                                        | Solution                               |
++------------------------------------------------+----------------------------------------+
+| The GPIO_INT_TRIG_BOTH interrupt is not raised | This will be fixed in a future release.|
+| when the associated GPIO is asserted.          |                                        |
++------------------------------------------------+----------------------------------------+
 
 .. _PSoC 62 MCU SoC Website:
 	http://www.cypress.com/products/32-bit-arm-cortex-m4-psoc-6
@@ -166,5 +198,5 @@ You will see the LED blinking every second.
 .. _CY8CPROTO-062-4343W PSoC 6 Wi-Fi BT Schematics:
     https://www.infineon.com/cms/en/product/evaluation-boards/cy8cproto-062-4343w/#!?fileId=8ac78c8c7d0d8da4017d0f01126b183f
 
-.. _Cypress OpenOCD:
+.. _Infineon OpenOCD:
     https://github.com/infineon/openocd/releases/tag/release-v4.3.0
