@@ -176,6 +176,9 @@ Errata
 | The GPIO_INT_TRIG_BOTH interrupt is not raised | This will be fixed in a future release.|
 | when the associated GPIO is asserted.          |                                        |
 +------------------------------------------------+----------------------------------------+
+| GDB experiences a timeout error connecting to  | This will be fixed in a future release.|
+| a server instance started by west debugserver. |                                        |
++------------------------------------------------+----------------------------------------+
 
 .. _PSoC 62 MCU SoC Website:
 	http://www.cypress.com/products/32-bit-arm-cortex-m4-psoc-6
