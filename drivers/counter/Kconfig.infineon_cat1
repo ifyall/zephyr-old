@@ -7,5 +7,6 @@ config COUNTER_INFINEON_CAT1
 	bool "Infineon CAT1 COUNTER driver"
 		default $(dt_compat_enabled,$(DT_COMPAT_INFINEON_CAT1_COUNTER))
 	depends on SOC_FAMILY_CAT1
+	select USE_INFINEON_TIMER
 	help
 	  This option enables the COUNTER driver for Infineon CAT1 family.

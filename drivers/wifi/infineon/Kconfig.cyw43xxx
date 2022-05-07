@@ -4,6 +4,8 @@
 menuconfig WIFI_CYW43XXX
 	bool "Infineon CYW43xxx SoC Wi-Fi support"
 	select THREAD_CUSTOM_DATA
+	select USE_INFINEON_SDIO
+
 	help
 	  Enable Infineon CYW43xxx SoC Wi-Fi support.
 
