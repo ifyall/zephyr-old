@@ -25,7 +25,7 @@
 
 #include <devicetree.h>
 #include <zephyr/types.h>
-#include "dt-bindings/pinctrl/cat1-pinctrl.h"
+#include "dt-bindings/pinctrl/ifx_cat1-pinctrl.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -217,7 +217,7 @@
 /drivers/*/*lpc11u6x*                     @mbittan @simonguinot
 /drivers/*/*npcx*                         @MulinChao @WealianLiao @ChiHuaL
 /drivers/*/*andes*                        @cwshu @kevinwang821020 @jimmyzhe
-/drivers/*/*infineon_cat1*                @ifyall
+/drivers/*/*ifx_cat1*                     @ifyall
 /drivers/*/*neorv32*                      @henrikbrixandersen
 /drivers/adc/                             @anangl
 /drivers/adc/adc_ads1x1x.c                @XenuIsWatching

@@ -19,7 +19,7 @@
 #include "cy_result.h"
 #include "cyhal_sdio.h"
 #include "device.h"
-#include "dt-bindings/pinctrl/cat1-pinctrl.h"
+#include "dt-bindings/pinctrl/ifx_cat1-pinctrl.h"
 
 /* WIFI interface types */
 #define CYBSP_SDIO_INTERFACE             (0)

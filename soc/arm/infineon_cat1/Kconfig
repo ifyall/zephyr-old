@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: Apache-2.0
 
 
-config SOC_FAMILY_CAT1
+config SOC_FAMILY_INFINEON_CAT1
 	bool
 
-config SOC_FAMILY_CAT1A
+config SOC_FAMILY_INFINEON_CAT1A
 	bool
 
-if SOC_FAMILY_CAT1
+if SOC_FAMILY_INFINEON_CAT1
 source "soc/arm/infineon_cat1/*/Kconfig.soc"
 
 config SOC_FAMILY
 	string
 	default "infineon_cat1"
 
-endif # SOC_FAMILY_CAT1
+endif # SOC_FAMILY_INFINEON_CAT1

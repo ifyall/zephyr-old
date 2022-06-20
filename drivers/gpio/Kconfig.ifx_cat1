@@ -8,6 +8,6 @@ DT_COMPAT_INFINEON_CAT1_GPIO := infineon,mtbhal-gpio
 config GPIO_INFINEON_CAT1
 	bool "Infineon CAT1 GPIO driver"
 		default $(dt_compat_enabled,$(DT_COMPAT_INFINEON_CAT1_GPIO))
-	depends on SOC_FAMILY_CAT1
+	depends on SOC_FAMILY_INFINEON_CAT1
 	help
 		Enable support for Infineon CAT1 GPIO controllers.
