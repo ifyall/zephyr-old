@@ -42,7 +42,48 @@ LOG_MODULE_REGISTER(infineon_cyw43xxx_wifi, CONFIG_WIFI_LOG_LEVEL);
 #define DEV_DATA(dev) \
 	((struct infineon_cyw43xxx_wifi_runtime *)(dev)->data)
 
-NET_BUF_POOL_DEFINE(cyw43xxx_pool, 12, 1600, 0, NULL);
+
+#ifndef CYW43XXX_TX_PACKET_POOL_COUNT
+#define CYW43XXX_TX_PACKET_POOL_COUNT         (10)
+#endif
+
+#ifndef CYW43XXX_RX_PACKET_POOL_COUNT
+#define CYW43XXX_RX_PACKET_POOL_COUNT         (10)
+#endif
+
+#ifndef CYW43XXX_PACKET_POOL_SIZE
+#define CYW43XXX_PACKET_POOL_SIZE             (1600)
+#endif
+
+#define CYW43XXX_PACKET_POOL_COUNT            (CYW43XXX_TX_PACKET_POOL_COUNT + \
+					       CYW43XXX_RX_PACKET_POOL_COUNT)
+
+
+/* This macro is copy of NET_BUF_POOL_FIXED_DEFINE with aligning net_buf_data_##_name
+ * WHD requires that network buffers is aligned, NET_BUF_POOL_FIXED_DEFINE does not
+ * guarantees aligned.
+ */
+#define NET_BUF_POOL_FIXED_DEFINE_ALIGN(_name, _count, _data_size, _ud_size, _destroy)	  \
+	_NET_BUF_ARRAY_DEFINE(_name, _count, _ud_size);					  \
+	static uint8_t __noinit net_buf_data_##_name[_count][_data_size] __net_buf_align; \
+	static const struct net_buf_pool_fixed net_buf_fixed_##_name = {		  \
+		.data_size = _data_size,						  \
+		.data_pool = (uint8_t *)net_buf_data_##_name,				  \
+	};										  \
+	static const struct net_buf_data_alloc net_buf_fixed_alloc_##_name = {		  \
+		.cb = &net_buf_fixed_cb,						  \
+		.alloc_data = (void *)&net_buf_fixed_##_name,				  \
+	};										  \
+	static STRUCT_SECTION_ITERABLE(net_buf_pool, _name) =				  \
+		NET_BUF_POOL_INITIALIZER(_name, &net_buf_fixed_alloc_##_name,		  \
+					 _net_buf_##_name, _count, _ud_size,		  \
+					 _destroy)
+
+
+/* Allocate network pool */
+NET_BUF_POOL_FIXED_DEFINE_ALIGN(cyw43xxx_pool,
+				CYW43XXX_PACKET_POOL_COUNT, CYW43XXX_PACKET_POOL_SIZE,
+				0, NULL);
 
 /* Use global iface pointer to support any Ethernet driver */
 /* necessary for wifi callback functions */
