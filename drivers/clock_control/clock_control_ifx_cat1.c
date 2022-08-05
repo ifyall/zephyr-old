@@ -20,7 +20,7 @@
  * @brief Clock control driver for Infineon CAT1 MCU family.
  */
 
-#include <drivers/clock_control.h>
+#include <zephyr/drivers/clock_control.h>
 #include "cyhal_clock.h"
 #include "cyhal_utils.h"
 #include "cyhal_clock_impl.h"

@@ -22,14 +22,14 @@
 
 #define DT_DRV_COMPAT infineon_mtbhal_counter
 
-#include <kernel.h>
+#include <zephyr/kernel.h>
 #include <soc.h>
 #include <errno.h>
-#include <drivers/counter.h>
+#include <zephyr/drivers/counter.h>
 #include "cyhal_timer.h"
-#include <device.h>
+#include <zephyr/device.h>
 #define LOG_LEVEL CONFIG_COUNTER_LOG_LEVEL
-#include <logging/log.h>
+#include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(counter_infineon_cat1);
 
 /* Default Counter interrupt priority */

@@ -27,11 +27,11 @@
 #define DT_DRV_COMPAT  infineon_mtbhal_gpio
 
 #include <errno.h>
-#include <kernel.h>
-#include <device.h>
-#include <init.h>
+#include <zephyr/kernel.h>
+#include <zephyr/device.h>
+#include <zephyr/init.h>
 #include <soc.h>
-#include <drivers/gpio.h>
+#include <zephyr/drivers/gpio.h>
 
 #include "gpio_utils.h"
 #include "cyhal_gpio.h"
@@ -39,7 +39,7 @@
 #include "cy_gpio.h"
 
 #define LOG_LEVEL CONFIG_GPIO_LOG_LEVEL
-#include <logging/log.h>
+#include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(gpio_cat1);
 
 /* Device config structure */

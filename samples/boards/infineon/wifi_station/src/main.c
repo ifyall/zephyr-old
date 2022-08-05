@@ -15,16 +15,16 @@
  * limitations under the License.
  */
 
-#include <zephyr.h>
-#include <sys/printk.h>
-#include <net/net_if.h>
-#include <net/net_core.h>
-#include <net/net_context.h>
-#include <net/net_mgmt.h>
+#include <zephyr/zephyr.h>
+#include <zephyr/sys/printk.h>
+#include <zephyr/net/net_if.h>
+#include <zephyr/net/net_core.h>
+#include <zephyr/net/net_context.h>
+#include <zephyr/net/net_mgmt.h>
 #include <whd_types.h>
 #include <whd_events_int.h>
 #include <whd_buffer_api.h>
-#include <logging/log.h>
+#include <zephyr/logging/log.h>
 #include <cyw43xxx_drv.h>
 
 LOG_MODULE_REGISTER(infineon_wifi_sta, LOG_LEVEL_DBG);
@@ -81,19 +81,19 @@ static void handler_cb(struct net_mgmt_event_callback *cb,
 	char buf[NET_IPV4_ADDR_LEN];
 
 	LOG_INF("Your address: %s",
-		log_strdup(net_addr_ntop(AF_INET,
-					 &iface->config.dhcpv4.requested_ip,
-					 buf, sizeof(buf))));
+		net_addr_ntop(AF_INET,
+			      &iface->config.dhcpv4.requested_ip,
+			      buf, sizeof(buf)));
 	LOG_INF("Lease time: %u seconds",
 		iface->config.dhcpv4.lease_time);
 	LOG_INF("Subnet: %s",
-		log_strdup(net_addr_ntop(AF_INET,
-					 &iface->config.ip.ipv4->netmask,
-					 buf, sizeof(buf))));
+		net_addr_ntop(AF_INET,
+			      &iface->config.ip.ipv4->netmask,
+			      buf, sizeof(buf)));
 	LOG_INF("Router: %s",
-		log_strdup(net_addr_ntop(AF_INET,
-					 &iface->config.ip.ipv4->gw,
-					 buf, sizeof(buf))));
+		net_addr_ntop(AF_INET,
+			      &iface->config.ip.ipv4->gw,
+			      buf, sizeof(buf)));
 }
 
 char *convert_securitytype(whd_security_t security)

@@ -26,15 +26,15 @@
 
 #define DT_DRV_COMPAT infineon_mtbhal_i2c
 
-#include <kernel.h>
+#include <zephyr/kernel.h>
 #include <soc.h>
 #include <errno.h>
-#include <drivers/i2c.h>
-#include <drivers/pinctrl.h>
+#include <zephyr/drivers/i2c.h>
+#include <zephyr/drivers/pinctrl.h>
 #include "cyhal_i2c.h"
 
 #define LOG_LEVEL CONFIG_I2C_LOG_LEVEL
-#include <logging/log.h>
+#include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(i2c_infineon_cat1);
 
 /* Map I2C pins in Pinctrl array */
@@ -142,7 +142,7 @@ static int i2c_cat1_configure(const struct device *dev, uint32_t dev_config)
 		}
 
 		/* Support for slave mode has not been implemented */
-		if (!(dev_config & I2C_MODE_MASTER)) {
+		if (!(dev_config & I2C_MODE_CONTROLLER)) {
 			LOG_ERR("Slave mode is not supported");
 			return -EIO;
 		}
@@ -198,7 +198,7 @@ static int i2c_cat1_get_config(const struct device *dev, uint32_t *dev_config)
 	}
 
 	/* Return current configuration */
-	*dev_config = config | I2C_MODE_MASTER;
+	*dev_config = config | I2C_MODE_CONTROLLER;
 
 	return 0;
 }

@@ -26,9 +26,9 @@
 
 #define DT_DRV_COMPAT infineon_mtbhal_uart
 
-#include <device.h>
-#include <drivers/uart.h>
-#include <drivers/pinctrl.h>
+#include <zephyr/device.h>
+#include <zephyr/drivers/uart.h>
+#include <zephyr/drivers/pinctrl.h>
 #include "cyhal_uart.h"
 
 /* Default UART interrupt priority */

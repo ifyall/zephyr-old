@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-#include "cy_result.h"
-#include "cyhal_sdio.h"
-#include "device.h"
-#include "dt-bindings/pinctrl/ifx_cat1-pinctrl.h"
+#include <cy_result.h>
+#include <cyhal_sdio.h>
+#include <zephyr/device.h>
+#include <zephyr/dt-bindings/pinctrl/ifx_cat1-pinctrl.h>
 
 /* WIFI interface types */
 #define CYBSP_SDIO_INTERFACE             (0)

@@ -23,9 +23,9 @@
 #ifndef ZEPHYR_SOC_ARM_INFINEON_CAT1_COMMON_PINCTRL_SOC_H_
 #define ZEPHYR_SOC_ARM_INFINEON_CAT1_COMMON_PINCTRL_SOC_H_
 
-#include <devicetree.h>
+#include <zephyr/devicetree.h>
 #include <zephyr/types.h>
-#include "dt-bindings/pinctrl/ifx_cat1-pinctrl.h"
+#include <zephyr/dt-bindings/pinctrl/ifx_cat1-pinctrl.h>
 
 #ifdef __cplusplus
 extern "C" {

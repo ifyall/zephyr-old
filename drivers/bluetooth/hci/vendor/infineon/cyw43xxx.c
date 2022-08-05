@@ -23,12 +23,12 @@
 #include <errno.h>
 #include <stddef.h>
 
-#include <zephyr.h>
-#include <device.h>
-#include <bluetooth/bluetooth.h>
-#include <drivers/bluetooth/hci_driver.h>
-#include <drivers/gpio.h>
-#include <drivers/uart.h>
+#include <zephyr/zephyr.h>
+#include <zephyr/device.h>
+#include <zephyr/bluetooth/bluetooth.h>
+#include <zephyr/drivers/bluetooth/hci_driver.h>
+#include <zephyr/drivers/gpio.h>
+#include <zephyr/drivers/uart.h>
 
 #define BT_DBG_ENABLED IS_ENABLED(CONFIG_BT_DEBUG_HCI_DRIVER)
 #define LOG_MODULE_NAME cyw43xxx_driver

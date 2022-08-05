@@ -20,7 +20,7 @@
  * @brief Pin control driver for Infineon CAT1 MCU family.
  */
 
-#include <drivers/pinctrl.h>
+#include <zephyr/drivers/pinctrl.h>
 #include <cyhal_gpio.h>
 #include "cy_gpio.h"
 

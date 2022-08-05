@@ -27,7 +27,7 @@
 #pragma once
 
 #include <stdbool.h>
-#include <kernel.h>
+#include <zephyr/kernel.h>
 
 #ifdef __cplusplus
 extern "C"
